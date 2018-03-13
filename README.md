@@ -1,1 +1,2 @@
-# smu
+# Small Molecule Universe (SMU)
+

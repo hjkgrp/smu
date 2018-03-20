@@ -1,0 +1,13 @@
+All Monoatoms: 125
+All selected monoatoms: 50
+Name, Score = Charge + octet + CA
+[NHHH]: 10 3 4 3
+[OH-]: 10 3 4 3
+[OHH]: 10 3 4 3
+[PHHH]: 10 3 4 3
+[S--]: 10 3 4 3
+[SHH]: 10 3 4 3
+Average SS: 10.0
+Average All (\{0}): 7.2
+Diff: 2.8
+

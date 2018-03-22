@@ -1,0 +1,22 @@
+COMP: Data to Decisions: Frank Brown Memorial Symposium (Oral)
+COMP: Quantum Mechanics (Oral)	
+CINF: Nanomaterials & Informatics (Oral)
+
+Transition metal chemistry is important because ...
+Inorganic (much more difficult, why?) vs Organic chemistry
+Rigorously map them / find distances
+Enumerate them
+Convert them into RACs
+Correlated wavefunction description like DLPNO vs DFT, both structure specific
+Multi-fidelity optimization with co-kriging
+
+Due to their wide range of tunable electronic properties, transition metal complexes are of great interest to the field of functional inorganic materials. However, exhaustive enumeration of all possible complexes leads to a vast and impenetrable chemical space. In order to be more tractable, we restrict ourselves to octahedral high symmetry complexes. From previous work we know that proximal features (i.e. from the first and second coordination shell) describe a complex reasonably well, thus we imose a further restriction of two heavy atoms (CONSP) per ligand. Now we can assess complex properties of this chemical subspace using data-driven models. The subspace is represented using the graph theoretical revised autocorrelation functions (RACs) that encode relationships of atomic properties. Since the computational cost to perform high-throughput density functional theory calculations is still very high, we enhance the results with more exact correlated wavefunction calculations like domain-based local pair-natural orbital coupled cluster DLPNO CCSD(T) approximations. To accommodate the results of these composition dependent models, we use machine learning techniques. This approach lets us assess the difference between correlated wavefunction results and DFT results as well deliver an estimation where the DFT result is likely to agree with the correlated wavefunction result.
+
+
+comp dep inad
+take cok out, rp w more generic
+prev work has ind sign local eff
+exploiting our findings w strong locality, first and second shell are very important
+where do they agree uncertainty on dft.      
+best outcome: correcture pred as a fnc of comp
+

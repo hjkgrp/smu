@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.24)  28 MAR 2018 00:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.24)  28 MAR 2018 03:30
 entering extended mode
-**./meeting1.tex
-(meeting1.tex
+**./flash.tex
+(flash.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
 
@@ -819,23 +819,255 @@ File: pppdftex.def 2017/10/31 v0.5l Pdfpages driver for pdfTeX (AM)
 \AM@toc@title=\toks44
 \c@AM@survey=\count162
 \AM@templatesizebox=\box54
-) (meeting1.aux)
-\openout1 = `meeting1.aux'.
+)
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\overpic\ov
+erpic.sty"
+Package: overpic 2017/10/06 1.0 picture overlays
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 99.
-LaTeX Font Info:    ... okay on input line 99.
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\eepic\epic
+.sty"
+Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
+\@@multicnt=\count163
+\d@lta=\count164
+\@delta=\dimen263
+\@@delta=\dimen264
+\@gridcnt=\count165
+\@joinkind=\count166
+\@dotgap=\dimen265
+\@ddotgap=\dimen266
+\@x@diff=\count167
+\@y@diff=\count168
+\x@diff=\dimen267
+\y@diff=\dimen268
+\@dotbox=\box55
+\num@segments=\count169
+\num@segmentsi=\count170
+\@datafile=\read2
+))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\fronte
+ndlayer\tikz.sty"
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\basicl
+ayer\pgf.sty"
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\modu
+les\pgfmoduleshapes.code.tex"
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
+\pgfnodeparttextbox=\box56
+)
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\modu
+les\pgfmoduleplot.code.tex"
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+)
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\compat
+ibility\pgfcomp-version-0-65.sty"
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen269
+\pgf@nodesepend=\dimen270
+)
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\compat
+ibility\pgfcomp-version-1-18.sty"
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilit
+ies\pgffor.sty"
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilit
+ies\pgfkeys.sty"
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\util
+ities\pgfkeys.code.tex"))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\math\p
+gfmath.sty"
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math
+\pgfmath.code.tex"))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\util
+ities\pgffor.code.tex"
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
+
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math
+\pgfmath.code.tex")
+\pgffor@iter=\dimen271
+\pgffor@skip=\dimen272
+\pgffor@stack=\toks45
+\pgffor@toks=\toks46
+))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\tikz.code.tex"
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
+
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libr
+aries\pgflibraryplothandlers.code.tex"
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count171
+\pgfplotmarksize=\dimen273
+)
+\tikz@lastx=\dimen274
+\tikz@lasty=\dimen275
+\tikz@lastxsaved=\dimen276
+\tikz@lastysaved=\dimen277
+\tikzleveldistance=\dimen278
+\tikzsiblingdistance=\dimen279
+\tikz@figbox=\box57
+\tikz@figbox@bg=\box58
+\tikz@tempbox=\box59
+\tikz@tempbox@bg=\box60
+\tikztreelevel=\count172
+\tikznumberofchildren=\count173
+\tikznumberofcurrentchild=\count174
+\tikz@fig@count=\count175
+
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\modu
+les\pgfmodulematrix.code.tex"
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count176
+\pgfmatrixcurrentcolumn=\count177
+\pgf@matrix@numberofcolumns=\count178
+)
+\tikz@expandcount=\count179
+
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibrarytopaths.code.tex"
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
+)))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibrarycalc.code.tex"
+File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
+)
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibrarytrees.code.tex"
+File: tikzlibrarytrees.code.tex 2008/02/24 v3.0.1a (rcs-revision 1.2)
+)
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibrarypositioning.code.tex"
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
+)
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibraryarrows.code.tex"
+File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libr
+aries\pgflibraryarrows.code.tex"
+File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
+\arrowsize=\dimen280
+))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibrarychains.code.tex"
+File: tikzlibrarychains.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.6)
+)
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibraryshapes.geometric.code.tex"
+File: tikzlibraryshapes.geometric.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1
+)
+
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libr
+aries\shapes\pgflibraryshapes.geometric.code.tex"
+File: pgflibraryshapes.geometric.code.tex 2008/06/26 v3.0.1a (rcs-revision 1.1)
+
+))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibrarydecorations.pathreplacing.code.tex"
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibrarydecorations.code.tex"
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\modu
+les\pgfmoduledecorations.code.tex"
+\pgfdecoratedcompleteddistance=\dimen281
+\pgfdecoratedremainingdistance=\dimen282
+\pgfdecoratedinputsegmentcompleteddistance=\dimen283
+\pgfdecoratedinputsegmentremainingdistance=\dimen284
+\pgf@decorate@distancetomove=\dimen285
+\pgf@decorate@repeatstate=\count180
+\pgfdecorationsegmentamplitude=\dimen286
+\pgfdecorationsegmentlength=\dimen287
+)
+\tikz@lib@dec@box=\box61
+)
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libr
+aries\decorations\pgflibrarydecorations.pathreplacing.code.tex"))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibrarydecorations.pathmorphing.code.tex"
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libr
+aries\decorations\pgflibrarydecorations.pathmorphing.code.tex"))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibraryshapes.code.tex"
+File: tikzlibraryshapes.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibraryshapes.misc.code.tex"
+File: tikzlibraryshapes.misc.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libr
+aries\shapes\pgflibraryshapes.misc.code.tex"
+File: pgflibraryshapes.misc.code.tex 2013/07/18 v3.0.1a (rcs-revision 1.5)
+))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibraryshapes.symbols.code.tex"
+File: tikzlibraryshapes.symbols.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libr
+aries\shapes\pgflibraryshapes.symbols.code.tex"
+File: pgflibraryshapes.symbols.code.tex 2013/09/11 v3.0.1a (rcs-revision 1.6)
+))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibraryshapes.arrows.code.tex"
+File: tikzlibraryshapes.arrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libr
+aries\shapes\pgflibraryshapes.arrows.code.tex"
+File: pgflibraryshapes.arrows.code.tex 2008/06/26 v3.0.1a (rcs-revision 1.1)
+))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibraryshapes.callouts.code.tex"
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libr
+aries\shapes\pgflibraryshapes.callouts.code.tex"))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibraryshapes.multipart.code.tex"
+File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1
+)
+
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libr
+aries\shapes\pgflibraryshapes.multipart.code.tex"
+File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.1a (rcs-revision 1.2)
+
+\pgfnodepartlowerbox=\box62
+\pgfnodeparttwobox=\box63
+\pgfnodepartthreebox=\box64
+\pgfnodepartfourbox=\box65
+\pgfnodeparttwentybox=\box66
+\pgfnodepartnineteenbox=\box67
+\pgfnodeparteighteenbox=\box68
+\pgfnodepartseventeenbox=\box69
+\pgfnodepartsixteenbox=\box70
+\pgfnodepartfifteenbox=\box71
+\pgfnodepartfourteenbox=\box72
+\pgfnodepartthirteenbox=\box73
+\pgfnodeparttwelvebox=\box74
+\pgfnodepartelevenbox=\box75
+\pgfnodeparttenbox=\box76
+\pgfnodepartninebox=\box77
+\pgfnodeparteightbox=\box78
+\pgfnodepartsevenbox=\box79
+\pgfnodepartsixbox=\box80
+\pgfnodepartfivebox=\box81
+)))
+("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\fron
+tendlayer\tikz\libraries\tikzlibrarymatrix.code.tex"
+File: tikzlibrarymatrix.code.tex 2013/07/12 v3.0.1a (rcs-revision 1.4)
+) (flash.aux)
+\openout1 = `flash.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -875,17 +1107,17 @@ LaTeX Font Info:    ... okay on input line 99.
 ("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\sup
 p-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count163
-\scratchdimen=\dimen263
-\scratchbox=\box55
-\nofMPsegments=\count164
-\nofMParguments=\count165
-\everyMPshowfont=\toks45
-\MPscratchCnt=\count166
-\MPscratchDim=\dimen264
-\MPnumerator=\count167
-\makeMPintoPDFobject=\count168
-\everyMPtoPDFconversion=\toks46
+\scratchcounter=\count181
+\scratchdimen=\dimen288
+\scratchbox=\box82
+\nofMPsegments=\count182
+\nofMParguments=\count183
+\everyMPshowfont=\toks47
+\MPscratchCnt=\count184
+\MPscratchDim=\dimen289
+\MPnumerator=\count185
+\makeMPintoPDFobject=\count186
+\everyMPtoPDFconversion=\toks48
 )
 ("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\e
 pstopdf-base.sty"
@@ -902,8 +1134,8 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 ) ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box56
-Package hyperref Info: Link coloring OFF on input line 99.
+\AtBeginShipoutBox=\box83
+Package hyperref Info: Link coloring OFF on input line 70.
 
 ("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\n
 ameref.sty"
@@ -913,67 +1145,67 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 \gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count169
+\c@section@level=\count187
 )
-LaTeX Info: Redefining \ref on input line 99.
-LaTeX Info: Redefining \pageref on input line 99.
-LaTeX Info: Redefining \nameref on input line 99.
- (meeting1.out) (meeting1.out)
+LaTeX Info: Redefining \ref on input line 70.
+LaTeX Info: Redefining \pageref on input line 70.
+LaTeX Info: Redefining \nameref on input line 70.
+ (flash.out) (flash.out)
 \@outlinefile=\write5
-\openout5 = `meeting1.out'.
+\openout5 = `flash.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 99.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 70.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 99.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 70.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 99.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 99.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 70.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 99.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 70.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 99.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 99.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 70.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 70.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 99.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 70.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 99.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 99.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 70.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 70.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 99.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 70.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 99.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 99.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 70.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 70.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 99.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 70.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 99.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 70.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 99.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 70.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 99.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 70.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 99.
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 70.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 99.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 70.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 99.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 70.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 99.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 70.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 99.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 99.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 70.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 70.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 9
-9.
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 7
+0.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 
-99.
+70.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 99.
+ut line 70.
 
 ("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator
 \translator-basic-dictionary-English.dict"
@@ -1008,473 +1240,76 @@ scape.sty"
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-)
-No file meeting1.nav.
-[1
+) (flash.nav) [1
 
 {C:/Users/Stefan Gugler/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<img/hist_iso_ligands_CNOPS.pdf, id=50, 387.53848pt x 278.34865pt>
-File: img/hist_iso_ligands_CNOPS.pdf Graphic file (type pdf)
-
-<use img/hist_iso_ligands_CNOPS.pdf>
-Package pdftex.def Info: img/hist_iso_ligands_CNOPS.pdf used on input line 149.
-
-(pdftex.def)             Requested size: 85.57382pt x 61.46199pt.
-
-<img/hist_iso_ligands_CNOPSSi.pdf, id=51, 387.53848pt x 278.34865pt>
-File: img/hist_iso_ligands_CNOPSSi.pdf Graphic file (type pdf)
-
-<use img/hist_iso_ligands_CNOPSSi.pdf>
-Package pdftex.def Info: img/hist_iso_ligands_CNOPSSi.pdf used on input line 14
-9.
-(pdftex.def)             Requested size: 85.57382pt x 61.46199pt.
-
-<img/hist_iso_ligands_CNOPSCl.pdf, id=52, 387.53848pt x 278.34865pt>
-File: img/hist_iso_ligands_CNOPSCl.pdf Graphic file (type pdf)
-
-<use img/hist_iso_ligands_CNOPSCl.pdf>
-Package pdftex.def Info: img/hist_iso_ligands_CNOPSCl.pdf used on input line 14
-9.
-(pdftex.def)             Requested size: 85.57382pt x 61.46199pt.
-
-<img/hist_iso_ligands_CNOPSSiCl.pdf, id=53, 387.53848pt x 278.34865pt>
-File: img/hist_iso_ligands_CNOPSSiCl.pdf Graphic file (type pdf)
-
-<use img/hist_iso_ligands_CNOPSSiCl.pdf>
-Package pdftex.def Info: img/hist_iso_ligands_CNOPSSiCl.pdf used on input line 
-149.
-(pdftex.def)             Requested size: 85.57382pt x 61.46199pt.
-
-Overfull \vbox (5.98663pt too high) detected at line 149
- []
-
-[2
-
- <./img/hist_iso_ligands_CNOPS.pdf> <./img/hist_iso_ligands_CNOPSSi.pdf
-
-pdfTeX warning: pdflatex.exe (file ./img/hist_iso_ligands_CNOPSSi.pdf): PDF inc
-lusion: multiple pdfs with page group included in a single page
-> <./img/hist_iso_ligands_CNOPSCl.pdf
-
-pdfTeX warning: pdflatex.exe (file ./img/hist_iso_ligands_CNOPSCl.pdf): PDF inc
-lusion: multiple pdfs with page group included in a single page
-> <./img/hist_iso_ligands_CNOPSSiCl.pdf
-
-pdfTeX warning: pdflatex.exe (file ./img/hist_iso_ligands_CNOPSSiCl.pdf): PDF i
-nclusion: multiple pdfs with page group included in a single page
->]pdfTeX warning (ext4): destination with the same identifier (name{\040fig7}) 
-has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.182 \end{frame}
-                 
-<img/hist_isove_ligands_CNOPS.pdf, id=254, 387.53848pt x 278.34865pt>
-File: img/hist_isove_ligands_CNOPS.pdf Graphic file (type pdf)
-
-<use img/hist_isove_ligands_CNOPS.pdf>
-Package pdftex.def Info: img/hist_isove_ligands_CNOPS.pdf used on input line 18
-2.
-(pdftex.def)             Requested size: 85.57382pt x 61.46199pt.
-
-<img/hist_isove_ligands_CNOPSSi.pdf, id=255, 387.53848pt x 278.34865pt>
-File: img/hist_isove_ligands_CNOPSSi.pdf Graphic file (type pdf)
-
-<use img/hist_isove_ligands_CNOPSSi.pdf>
-Package pdftex.def Info: img/hist_isove_ligands_CNOPSSi.pdf used on input line 
-182.
-(pdftex.def)             Requested size: 85.57382pt x 61.46199pt.
-
-<img/hist_isove_ligands_CNOPSCl.pdf, id=256, 387.53848pt x 278.34865pt>
-File: img/hist_isove_ligands_CNOPSCl.pdf Graphic file (type pdf)
-
-<use img/hist_isove_ligands_CNOPSCl.pdf>
-Package pdftex.def Info: img/hist_isove_ligands_CNOPSCl.pdf used on input line 
-182.
-(pdftex.def)             Requested size: 85.57382pt x 61.46199pt.
-
-<img/hist_isove_ligands_CNOPSSiCl.pdf, id=257, 387.53848pt x 278.34865pt>
-File: img/hist_isove_ligands_CNOPSSiCl.pdf Graphic file (type pdf)
-
-<use img/hist_isove_ligands_CNOPSSiCl.pdf>
-Package pdftex.def Info: img/hist_isove_ligands_CNOPSSiCl.pdf used on input lin
-e 182.
-(pdftex.def)             Requested size: 85.57382pt x 61.46199pt.
-
-Overfull \vbox (5.98663pt too high) detected at line 182
- []
-
-[3
-
- <./img/hist_isove_ligands_CNOPS.pdf> <./img/hist_isove_ligands_CNOPSSi.pdf
-
-pdfTeX warning: pdflatex.exe (file ./img/hist_isove_ligands_CNOPSSi.pdf): PDF i
-nclusion: multiple pdfs with page group included in a single page
-> <./img/hist_isove_ligands_CNOPSCl.pdf
-
-pdfTeX warning: pdflatex.exe (file ./img/hist_isove_ligands_CNOPSCl.pdf): PDF i
-nclusion: multiple pdfs with page group included in a single page
-> <./img/hist_isove_ligands_CNOPSSiCl.pdf
-
-pdfTeX warning: pdflatex.exe (file ./img/hist_isove_ligands_CNOPSSiCl.pdf): PDF
- inclusion: multiple pdfs with page group included in a single page
->]
-LaTeX Font Info:    Try loading font information for U+msa on input line 193.
+LaTeX Font Info:    Try loading font information for U+msa on input line 114.
 
 ("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\u
 msa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 193.
+LaTeX Font Info:    Try loading font information for U+msb on input line 114.
 
 ("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\u
 msb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 193.
+line 114.
 
 ("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\sansmathac
 cent\ot1mathkerncmss.fd"
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
-)
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 193.
-
-
-("C:\Users\Stefan Gugler\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscm
-r.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 193.
- [4
+) [2
 
 ]
-Overfull \hbox (6.70526pt too wide) detected at line 224
-\OT1/mathkerncmss/m/sl/10.95 u[] \OT1/cmss/m/n/10.95 = 5 \OMS/cmsy/m/n/10.95   
-j []   [] j
- []
+<img/distrDiCNOPS.pdf, id=79, 393.9217pt x 278.34865pt>
+File: img/distrDiCNOPS.pdf Graphic file (type pdf)
 
-[5
+<use img/distrDiCNOPS.pdf>
+Package pdftex.def Info: img/distrDiCNOPS.pdf used on input line 130.
+(pdftex.def)             Requested size: 273.83728pt x 193.50058pt.
+ [3
 
-] [6
-
-]
-
-! LaTeX Error: Environment table* undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.280 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: \caption outside figure or table.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.280 \end{frame}
-                 
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: \begin{beamer@framepauses} on input line 280 ended by \end{table
-*}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.280 \end{frame}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[7
-
-] <img/distr_CNOPS.pdf, id=588, 400.30492pt x 278.34865pt>
-File: img/distr_CNOPS.pdf Graphic file (type pdf)
-
-<use img/distr_CNOPS.pdf>
-Package pdftex.def Info: img/distr_CNOPS.pdf used on input line 290.
-(pdftex.def)             Requested size: 239.60567pt x 166.60698pt.
-
-Overfull \vbox (1.48083pt too high) detected at line 290
- []
-
-[8
-
- <./img/distr_CNOPS.pdf>]
-! Missing number, treated as zero.
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-! Missing number, treated as zero.
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-! Missing number, treated as zero.
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-! Missing number, treated as zero.
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-! Missing number, treated as zero.
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-! Missing number, treated as zero.
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-! Missing number, treated as zero.
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-! Missing number, treated as zero.
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-! Missing number, treated as zero.
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-! Missing number, treated as zero.
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   [
-l.307 \end{frame}
-                 
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-[9
-
-]
+ <./img/distrDiCNOPS.pdf>]
 \tf@nav=\write6
-\openout6 = `meeting1.nav'.
+\openout6 = `flash.nav'.
 
 \tf@toc=\write7
-\openout7 = `meeting1.toc'.
+\openout7 = `flash.toc'.
 
 \tf@snm=\write8
-\openout8 = `meeting1.snm'.
+\openout8 = `flash.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 443.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 443.
- (meeting1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 443.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 443.
-Package rerunfilecheck Info: File `meeting1.out' has not changed.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 134.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 134.
+ (flash.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 134.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 134.
+Package rerunfilecheck Info: File `flash.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 17911 strings out of 493323
- 348822 string characters out of 3126541
- 416763 words of memory out of 3000000
- 21002 multiletter control sequences out of 15000+200000
- 11982 words of font info for 44 fonts, out of 3000000 for 9000
+ 24035 strings out of 493323
+ 513992 string characters out of 3126541
+ 600921 words of memory out of 3000000
+ 27011 multiletter control sequences out of 15000+200000
+ 10741 words of font info for 39 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,15n,57p,777b,564s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,15n,71p,774b,1091s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Stefan Gugler/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmex10.pfb><C:/Users/Stefan Gugler/AppData/Local/Programs/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Stefan Gugler/AppData/Loc
-al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Stefa
-n Gugler/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.
-pfb><C:/Users/Stefan Gugler/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmss10.pfb><C:/Users/Stefan Gugler/AppData/Local/Programs/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Stefan Gugler/AppData/L
-ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Ste
-fan Gugler/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
-si10.pfb><C:/Users/Stefan Gugler/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmssi8.pfb><C:/Users/Stefan Gugler/AppData/Local/Programs/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Stefan Gugler/AppD
-ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Use
-rs/Stefan Gugler/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmtt8.pfb>
-Output written on meeting1.pdf (9 pages, 316979 bytes).
+amsfonts/cm/cmmi10.pfb><C:/Users/Stefan Gugler/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Stefan Gugler/AppData/Loc
+al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Stef
+an Gugler/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss
+8.pfb><C:/Users/Stefan Gugler/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmssi10.pfb><C:/Users/Stefan Gugler/AppData/Local/Programs/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmssi8.pfb>
+Output written on flash.pdf (3 pages, 99086 bytes).
 PDF statistics:
- 725 PDF objects out of 1000 (max. 8388607)
- 20 named destinations out of 1000 (max. 500000)
- 112 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 171 PDF objects out of 1000 (max. 8388607)
+ 7 named destinations out of 1000 (max. 500000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

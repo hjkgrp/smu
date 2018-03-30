@@ -87,7 +87,8 @@ Even though our chemical space is truncated to the first and second coordination
 For the ligand design, a number of parameters are introduced to later impose constraints on them to further decrease the vastness of the space. These parameters include the number of H atoms bond to any atom, $h^i_j$, the charge $c^i_j$, the number of lone pairs $l^i_j$, the number of valence electrons $v^i_j$, where $i$ and $j$ are the ligand's denticity and the atom index inside the ligand, respectively. We only build mono-heavy-atomic ligands (MHALs), di-heavy-atomic ligands (DHALs), and bidentate tetra-heavy-atomic ligands (THALs), which are two identical DHALs bonded together, imposing a strong symmetry constraint.
 
 The full combinatorial space is first reduced via heuristics from classical chemistry like charge, sterics, satisfaction of the octet rule, whether the ligand is open or closed shell and bond orders. The most unfeasible candidates are not even scored all others are scored according to the heuristics mentioned above. The next reduction step is a cutoff over a certain score to obtain a space of desired and sensible structures, yet still too large to even enumerate, let alone calculate. To obtain a feasible space to enumerate, we sample a certain percentage from the the desired space weighted over the distribution of isoelectronic stuctures. This space is small enough to be enumerated. Samples are drawn randomly (?) to obtain DFT results and to interpolate the rest of the enumerated space (see Figure \ref{fig:truncation}).
- \begin{figure}
+ 
+ \begin{figure}[]
  \centering
  \begin{tikzpicture}
  [node distance=.5cm,
@@ -111,27 +112,38 @@ The full combinatorial space is first reduced via heuristics from classical chem
  \label{fig:truncation}
  \end{figure}
  
+ \begin{infobox}[Valency (IUPAC Definition)]
+ The maximum number of univalent atoms (originally hydrogen or chlorine atoms) that may combine with an atom of the element under consideration, or with a fragment, or for which an atom of this element can be substituted.
+ \label{info:valency}
+ \end{infobox}
+ 
 \subsection{Spanning the full space}
 For each element CNOPS we allow a charge $c \in \{-2,-1,0,1,2\}$ (we suppress the denticity and atom indices $i$ and $j$ where it is clear from the context) and a number of attached hydrogen atoms $h \in \{0,1,2,3,4\}$.
 
 For the \textbf{MHALs}, we combinatorially cycle through all combinations of elements, of charge, and of number of H atoms, resulting in $5^3=125$ candidates. 
 
-\begin{infobox}[Valency]
-The maximum number of univalent atoms (originally hydrogen or chlorine atoms) that may combine with an atom of the element under consideration, or with a fragment, or for which an atom of this element can be substituted.
-\label{info:valency}
-\end{infobox}
-
-The DHALs were enumerated similarly, iterating through $e_1$, $e_2$, $h_1$, and $h_2$. Since, from a DFT perspective, charge is not a local property, we don't iterate over all combinations of $c_1$ and $c_2$, since it would produce many degeneracies (i.e. $-1+1=0$ is the same overall charge as $-2+2=0$) and it would not be clear, which charge distribution would be the right one, from a classical picture. For that reason, we iterate over a total charge $c_{tot}$. For every instance of $c_{tot}$, we call a subroutine that exhaustively checks all charge combinations that could result in $c_{tot}$. For each combination of charges $c_1$ and $c_2$, we calculate the valence $\nu$ (see Box \ref{info:valency}) of the respective atom as follows, given the lone pairs and valence electrons from previous knowledge:
+The \textbf{DHALs} were enumerated similarly, iterating through $e_1$, $e_2$, $h_1$, and $h_2$. Since, from a DFT perspective, charge is not a local property, we don't iterate over all combinations of $c_1$ and $c_2$, since it would produce many degeneracies (i.e. $-1+1=0$ is the same overall charge as $-2+2=0$) and it would not be clear, which charge distribution would be the right one, from a classical picture. For that reason, we iterate over a total charge $c_{tot}$. For every instance of $c_{tot}$, we call a subroutine that exhaustively checks all charge combinations that could result in $c_{tot}$. For each combination of charges $c_1$ and $c_2$, we calculate the valency $\nu$ (see Box \ref{info:valency}) of the respective atom as follows, given the lone pairs, $l_i$ and valence electrons $v_i$ from previous knowledge:
 
 \begin{equation}
+\label{eq:valency}
 \nu_i = v_i - c_i - 2 \cdot l_i - 2 \cdot h_i ~. 
 \end{equation}
 
 We set the bond order $b$ to be the minimum of the valencies of the two atoms in the DHAL,
 \begin{equation}
-b = \min{\nu_1,\nu_2} ~,
+b = \min{\{\nu_1,\nu_2\}} ~,
 \end{equation}
-if the absolute difference of $\nu_1$ and $\nu_2$ is smallest over all charge combinations and $b \leq b \leq 4$. The optimal charge distribution over the two atoms is assumed to be the $c_1$ and $c_2$ fulfilling the requirements above.
+if the absolute difference of $\nu_1$ and $\nu_2$ is smallest over all charge combinations and $0 \leq b \leq 4$. The optimal charge distribution over the two atoms is assumed to be the $c_1$ and $c_2$ fulfilling the requirements above.
+
+Since the \textbf{THALs} are composed of two bonded DHALs (labeled 1 and 2 for the first DHAL and $1^\prime$ and $2^\prime$ for the second DHAL, 1 and $1^\prime$ being the connecting atom), instead of building them from scratch, we decided to combine all the DHALs and exclude the ones that do not bond effectively. As before, we iterate through $e_1$, $e_2$, $h_1$, and $h_2$ of the building block DHAL. Similarly as with the regular DHAL enumeration described above, we assign a total charge $c_{tot}$ to one of the building block DHALs. We cycle then through all combinations of $c_1$ and $c_2$ and calculate the valencies of each atom according to Eq. (\ref{eq:valency}). If $\nu_1 > 0$, it means that it has at least one electron to bond with atom 2 and if $\nu_2 > 1$, it means that it has at least two electrons, one to bond with atom 1 and one to bond with atom $2^\prime$ of the other DHAL. Since the problem is symmetrical, the valencies $\nu_{1^\prime} > 0$ and $\nu_{2^\prime} > 0$ are exactly the same and only labeled differently to speak about them more effectively. The bond order $b_{12} \in \{1, ..., \nu_2\}$ is chosen as
+\begin{equation}
+\min_b\{|\nu_2 - \nu_2 - b_{12}|\}
+\end{equation}
+from which we can simply calculate the second bond, $b_{23}$, as
+\begin{equation}
+b_{23} = \min\{\nu_1, \nu_2 - b_{12}\} ~.
+\end{equation}
+We have two possibilities to choose the best charge and bond distribution: Either we require to have minimal bond orders or minimal absolute charges. We decided in favor of minimal charges, since this promises better stability for the resulting complexes. So, if $|c_1|$ and $|c_2|$ are smallest, we choose the corresponding bond orders and charges as the best ones.
 
 \centering
 \begin{overpic}[width=0.8\linewidth]{../meetings/18-03-28-flashtalk/img/distrDiCNOPS.pdf}

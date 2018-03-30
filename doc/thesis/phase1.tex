@@ -9,6 +9,7 @@
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{pdfpages}
 \usepackage[percent]{overpic}
+\usepackage[labelfont=bf]{caption}
 
 \usepackage{tikz}
 \usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
@@ -50,6 +51,9 @@
 \newcounter{infobox}[section]
 \renewcommand{\theinfobox}{\thesection.\arabic{infobox}}
 \usepackage{amsmath}
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
 
 \usepackage[framemethod=TikZ]{mdframed}
  
@@ -185,7 +189,7 @@ This leads to a total score,
 	s = s_{\textrm{charge}} + s_{\textrm{sterics}} + s_{\textrm{octet}} ~.
 \end{equation}
 
-The \textbf{DHALs} are restricted in a similar way as the MHALs: We discard all compounds with charge $c > 1$ and a number of H atoms on the CA $h > 3$, since it is not sterically accessible. Lastly, we remove the compounds with a bond order $b = 0$. For the remaining compounds, we impose the following scores, $s$, for polarization
+The \textbf{DHALs} are restricted in a similar way as the MHALs: We discard all compounds with charge $c > 1$ and a number of H atoms on the CA, $h > 3$, since it is not sterically accessible. Lastly, we remove the compounds with a bond order $b = 0$. For the remaining compounds, we impose the following scores, $s$, for polarization
 \begin{equation}
 	s_{\textrm{polarization}} = 
 	\begin{cases}
@@ -247,4 +251,55 @@ In Figure \ref{fig:dhalhist} a histogram of the scores is shown. In total, 1500 
 \caption{Histogram of all scored DHALs. The ones excluded in the beginning are not shown. Some examples are shown, representing bins at certain scores.}
 \label{fig:dhalhist}
 \end{figure}
+
+Lastly, we exclude from the scoring all compounds with triple bonds, allenic compounds, and compounds outside the charge range $2 \geq c_{tot} \geq -4$ from the set of \textbf{THALs}.
+The bonds are scored with 
+\begin{equation}
+	s_{\textrm{bond}} = 
+	\begin{cases}
+	3	&	\mathrm{if}~ b_{12} = b_{12} = 1 \\
+	3	&	\mathrm{if}~ b_{23} = 2 \\
+	0	&	\mathrm{if}~ b_{12} = 2 ~.
+	\end{cases}
+\end{equation}
+where the double bond in one place determines the other bond to be a single bond. Valency is scored as
+\begin{equation}
+	s_{\textrm{valency}} = 5 - |\nu_1 - \nu_2| ~,
+\end{equation}
+sterics on the CA as
+\begin{equation}
+	s_{\textrm{sterics}} = 
+	\begin{cases}
+	0	&	\mathrm{if}~ h_1 = 3 \vee h_2 = 3 \\
+	3	&	\mathrm{if}~ \textrm{otherwise} ~,
+	\end{cases}
+\end{equation}
+where the $ h_1 = 3 \wedge h_2 = 3 $ case never happens. Finally, the charge is scored as
+
+\begin{equation}
+u_{\textrm{charge}} = 
+\begin{cases}
+5	&	\mathrm{if}~ c_1 = 1 \vee c_2 = 0 \\
+3	&	\mathrm{if}~ (c_1 = 1 \vee c_2 = -1) \wedge (c_1 = -1 \vee c_2 = 1) \\
+3   &	\mathrm{if}~ (c_1 = -1 \vee c_2 = -1) \\
+0   &	\mathrm{if}~ (c_1 = -2 \vee c_2 = -2) \\
+3   &	\mathrm{if}~ (c_1 = 0 \vee c_2 = -1) \wedge (c_1 = -1 \vee c_2 = 0) \\
+0   &	\mathrm{if}~ (c_1 = 2 \vee c_2 = -1) \wedge (c_1 = -1 \vee c_2 = 2) \\
+2   &	\mathrm{if}~ (c_1 = 0 \vee c_2 = -2) \wedge (c_1 = -2 \vee c_2 = 0) \\
+1   &	\mathrm{if}~ (c_1 = -2 \vee c_2 = -1) \wedge (c_1 = -1 \vee c_2 = -2) \\
+2   &	\mathrm{if}~ (c_1 = -2 \vee c_2 = 0) \wedge (c_1 = 0 \vee c_2 = -2) ~.
+\end{cases}
+\end{equation}
+
+The total score for the THALs is then the sum over all subtotals:
+\begin{equation}
+	s =  s_{\textrm{bond}}  + s_{\textrm{valency}} + s_{\textrm{sterics}} + s_{\textrm{charge}} ~.
+\end{equation}
+In total, 201 THALs were scored which we reduced to 60 THALs by selecting only the ones with a score higher than $13$.
+
+\subsection{The realm of the possible: The enumerated space}
+The enumerated space, $\mathcal{S} \subset \mathbb{R}^{155}$, will be the space in which our solutions live, accounting for the 155 RACs. Our constraints allow us to assemble around 1.5~M complexes. We choose 20 MHALs, 80 DHALs and 50 THALs. Constraining on weak symmetry (axial positions distinguishable, symmetrical equatorial positions), we obtain $(20 + 80)^3 + 50^2 + 50 \cdot 100^2 = 1,502,500$ compounds. 
+
+The 20 MHALs were chosen uniformly proportionally to their isoelectronic distribution, around 66~\% of each bin of isoelectronics. The DHALs were chosen accordingly, around 20~\% of each bin. The bidentates were chosen without regard on the isoelectronic distribution. 
+
 \end{document}

@@ -1,7 +1,8 @@
 rm(list=ls())
 
-# read in the homoRACs
+# read in the RACs
 ss_racs <- read.csv(file = "ssRACs.csv", header = TRUE)
+fo_racs <- read.csv(file = "foRACs.csv", header = TRUE)
 homo_racs <- read.csv(file = "homolepticRACs.csv", header = TRUE)
 
 load(file="selected_all.R")
@@ -14,21 +15,25 @@ rf153vars <- selected_all[!(selected_all %in% c('alpha','ox'))]
 ss_rf39racs <- ss_racs[,rf39vars]
 ss_rf153racs <- ss_racs[,rf153vars]
 
+fo_rf39racs <- fo_racs[,rf39vars]
+fo_rf153racs <- fo_racs[,rf153vars]
+
 homo_rf39racs <- homo_racs[,rf39vars]
 homo_rf153racs <- homo_racs[,rf153vars]
 
 split_results_39racs <- split_results[,rf39vars]
 split_results_153racs <- split_results[,rf153vars]
-props <- split_results[,!(colnames(split_results) %in% (rf153vars))]
+props <- (split_results[,!(colnames(split_results) %in% (rf153vars))])
 
-# apply the var on cols (meaning of '2') of rf39racs. which ones have it zero?
+# Apply the variance function 'var' on all cols ('2' means cols) of rf39racs. Throw out the one's with zero variance for PCA later.
 # which(apply(rf153racs, 2, var)==0)
-# apply the same deletion in the ss even though it has actually more, to get same dimensionality
+# apply the same deletion in the ss and fo even though they have actually more, to get same dimensionality
 homo_rf133racs <- homo_rf153racs[ , apply(homo_rf153racs, 2, var) != 0]
-ss_rf133racs <- ss_rf153racs[ , apply(homo_rf153racs, 2, var) != 0]
+ss_rf133racs   <- ss_rf153racs[ , apply(homo_rf153racs, 2, var) != 0]
+fo_rf133racs   <- fo_rf153racs[ , apply(homo_rf153racs, 2, var) != 0]
 split_results_133racs <- split_results_153racs[ , apply(homo_rf153racs, 2, var) != 0]
 
-props$goodConvergence <- props$ox_2_HS_flag_oct + props$ox_2_LS_flag_oct + props$ox_3_LS_flag_oct + props$ox_3_HS_flag_oct
+props$goodConvergence <- as.factor(props$ox_2_HS_flag_oct + props$ox_2_LS_flag_oct + props$ox_3_LS_flag_oct + props$ox_3_HS_flag_oct)
 
 ###############
 # Standardize #
@@ -40,9 +45,11 @@ homo_rf133racs_center <-attr(homo_rf133racs_data, 'scaled:center')
 homo_rf133racs_scale <- attr(homo_rf133racs_data, 'scaled:scale')
 homo_rf133racs_data <- as.data.frame(homo_rf133racs_data)
 
-# standardize ss data with homo moments
+# standardize ss and fo data with homo moments
 ss_rf133racs_data <- scale(ss_rf133racs, center=homo_rf133racs_center, scale=homo_rf133racs_scale)
 ss_rf133racs_data <- as.data.frame(ss_rf133racs_data)
+fo_rf133racs_data <- scale(fo_rf133racs, center=homo_rf133racs_center, scale=homo_rf133racs_scale)
+fo_rf133racs_data <- as.data.frame(fo_rf133racs_data)
 
 # standardize results with homo moments
 split_results_133racs_data <- scale(split_results_133racs, center=homo_rf133racs_center, scale=homo_rf133racs_scale)
@@ -67,12 +74,16 @@ scores$metal <- revalue(as.factor(sqrt(homo_rf133racs$mc.Z.0.all)),c('24'='Cr','
 #scores$cai <- revalue(as.factor(sqrt(homo_rf133racs$lc.Z.0.eq)),c('6'='C','7'='N','8'='O','15'='P','16'='S'))
 scores$cai <- (4*sqrt(homo_rf133racs$lc.Z.0.eq)+2*sqrt(homo_rf133racs$lc.Z.0.ax))/6
 
-# basically scores of the projection of ss into homo
+# projection of ss and fo into homo coordinates and reassignments
 projSsIntoHomo <- as.data.frame(predict(pca1, ss_rf133racs_data))
-
 projSsIntoHomo$set <- 'ss'
 projSsIntoHomo$metal <- revalue(as.factor(sqrt(ss_rf133racs$mc.Z.0.all)), c('24'='Cr','25'='Mn','26'='Fe','27'='Co'))
 projSsIntoHomo$cai <- (4*sqrt(ss_rf133racs$lc.Z.0.eq) + 2*sqrt(ss_rf133racs$lc.Z.0.ax))/6
+
+projFoIntoHomo <- as.data.frame(predict(pca1, fo_rf133racs_data))
+projFoIntoHomo$set <- 'fo'
+projFoIntoHomo$metal <- revalue(as.factor(sqrt(fo_rf133racs$mc.Z.0.all)), c('24'='Cr','25'='Mn','26'='Fe','27'='Co'))
+projFoIntoHomo$cai <- (4*sqrt(fo_rf133racs$lc.Z.0.eq) + 2*sqrt(fo_rf133racs$lc.Z.0.ax))/6
 
 projSplitIntoHomo <- as.data.frame(predict(pca1, split_results_133racs_data))
 projSplitIntoHomo$set <- 'calcHomo'
@@ -97,26 +108,29 @@ require(dplyr)
 # HOMO: 
 # PC1 vs PC5 separates the metals
 # PC4 vs PC2 is interesting: cai and esp f.Z.0.ax
-g <- ggplot(data=totalScores, aes(x=PC1, y=PC2, color=metal))
-g <- g + geom_point(data=projSplitIntoHomo, aes(color=props$goodConvergence), stroke = 1, size = 3) 
-g <- g + theme_light()
-# + geom_point(data=cald[cald$betterconv > 0 , ], stroke =4, color="red") # +facet_wrap( ~ metal, ncol=2) +geom
-  #scale_color_gradient2(high='firebrick',low='dodgerblue',mid='gray',midpoint=-15)
+g <- ggplot(data=projSsIntoHomo[seq.int(1L,length(projSsIntoHomo$PC1),100L),], aes(x=PC1, y=PC2, color='black')) +
+  geom_point(size = 0.1)
+#g <- g + geom_point(data=projFoIntoHomo[seq.int(1L,length(projFoIntoHomo$PC1),100L),], aes(x=PC1, y=PC2, color='black'), size=0.1)
+g <- g + geom_point(data=scores, aes(x=PC1, y=PC2), size=0.1)
+g <- g + geom_point(data=projSplitIntoHomo, aes(x=PC1, y=PC2), size=1, shape=props$goodConvergence )
+# http://www.perbang.dk/rgbgradient/
+# g <- g + scale_colour_gradientn(colours = c('black', 'blue', 'red', '#D306DB', '#D721BC','#DC3C9E', '#E15880','#E57361', '#EA8E43' ,'#EFAA25','yellow' ))
+g <- g + scale_colour_gradientn()
+
+# g <- g + geom_point(data=projSplitIntoHomo, aes(x=PC1, y=PC2))
+g <- g + theme_light() #+ facet_wrap('set')
+# g <- g + scale_fill_manual(values=c("Cr", "Mn", "Fe", "Co"))
 # g <- g + scale_size_manual(values = c("ss"=0.1, "homo"=3))
 # g <- g + scale_shape_manual(values = c("ss"=1, "homo"=1))
 
-# g <- g + scale_size_manual(values = c("ss"=0.01,"homo"=3))
-# g <- g + scale_color_gradient2(low='red',high='yellow',mid='blue',midpoint = 10,limits=c(6,16))
-print(g) # print
-
-g <- ggplot(data=totalScores, aes(x=PC1, y=PC2)) + stat_bin2d(binwidth = c(4,1)) + theme_light() +geom_point(data=scores,aes(color=metal)) 
+# cairo_pdf(file="pca.pdf",width = 6, height = 5)
 print(g)
+# dev.off()
 
-ggplot(data = scores, aes(x = PC2, y = PC4, label = rownames(scores))) +
-  geom_hline(yintercept = 0, colour = "gray65") +
-  geom_vline(xintercept = 0, colour = "gray65") +
-  geom_text(colour = "darkcyan", alpha = 0.8, size = 2)
+# g <- ggplot(data=totalScores, aes(x=PC1, y=PC2)) + stat_bin2d(binwidth = c(4,1)) + theme_light() +geom_point(data=scores,aes(color=metal))
+# print(g)
 
 
-plot(totalScores[1:6], pch='.')
+
+
 

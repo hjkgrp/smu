@@ -1,2 +1,5 @@
 *.xyz
 *.tar.bz2
+*/ssRACs.csv
+AutomaticDesign/*
+molSimplify/*

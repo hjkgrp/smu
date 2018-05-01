@@ -4,3 +4,4 @@
 molSimplify/*
 compl/*.csv
 compl/*/*.csv
+compl/RAC_before_setmerger/*.csv

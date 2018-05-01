@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2018.3.23)  30 MAR 2018 18:33
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2018.3.23)  30 APR 2018 15:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -957,194 +957,60 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 78.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (./abstract.tex)
-(./enum.tex [1
+(./lf.tex
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 12.
-
-[2] [3] [4]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 119.
-
-<img/mhal_ss_hist.pdf, id=31, 387.53848pt x 278.34865pt>
-File: img/mhal_ss_hist.pdf Graphic file (type pdf)
-
-<use img/mhal_ss_hist.pdf>
-Package pdftex.def Info: img/mhal_ss_hist.pdf used on input line 121.
-(pdftex.def)             Requested size: 241.49895pt x 173.4578pt.
+LaTeX Warning: Reference `sec:enum' on page 1 undefined on input line 4.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 126.
+               Default added (so using `tbp') on input line 6.
 
-<img/mhal_ss_score_vs_v_2d_hist.pdf, id=32, 364.32246pt x 266.97804pt>
-File: img/mhal_ss_score_vs_v_2d_hist.pdf Graphic file (type pdf)
+[1
 
-<use img/mhal_ss_score_vs_v_2d_hist.pdf>
-Package pdftex.def Info: img/mhal_ss_score_vs_v_2d_hist.pdf used on input line 
-128.
-(pdftex.def)             Requested size: 241.49895pt x 176.97598pt.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+<img/pca.pdf, id=23, 433.62pt x 361.35pt>
+File: img/pca.pdf Graphic file (type pdf)
+ <use img/pca.pdf>
+Package pdftex.def Info: img/pca.pdf used on input line 53.
+(pdftex.def)             Requested size: 241.49895pt x 201.25186pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 62.
 
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 62.
+) [3 <./img/pca.pdf>]
+(./phase1.aux)
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 133.
+LaTeX Warning: There were undefined references.
 
-<img/mhal_ss_hist_charge.pdf, id=33, 387.53848pt x 266.68005pt>
-File: img/mhal_ss_hist_charge.pdf Graphic file (type pdf)
-
-<use img/mhal_ss_hist_charge.pdf>
-Package pdftex.def Info: img/mhal_ss_hist_charge.pdf used on input line 135.
-(pdftex.def)             Requested size: 241.49895pt x 166.18631pt.
- [5] [6 <./img/mhal_ss_hist.pdf> <./img/mhal_ss_score_vs_v_2d_hist.pdf
-
-pdfTeX warning: pdflatex (file ./img/mhal_ss_score_vs_v_2d_hist.pdf): PDF inclu
-sion: multiple pdfs with page group included in a single page
->] [7 <./img/mhal_ss_hist_charge.pdf>]
-<../meetings/18-03-28-flashtalk/img/distrDiCNOPS.pdf, id=142, 393.9217pt x 278.
-34865pt>
-File: ../meetings/18-03-28-flashtalk/img/distrDiCNOPS.pdf Graphic file (type pd
-f)
- <use ../meetings/18-03-28-flashtalk/img/distrDiCNOPS.pdf>
-Package pdftex.def Info: ../meetings/18-03-28-flashtalk/img/distrDiCNOPS.pdf us
-ed on input line 201.
-(pdftex.def)             Requested size: 276.00105pt x 195.0296pt.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 216.
-
-File: img/mhal_ss_score_vs_v_2d_hist.pdf Graphic file (type pdf)
-<use img/mhal_ss_score_vs_v_2d_hist.pdf>
-Package pdftex.def Info: img/mhal_ss_score_vs_v_2d_hist.pdf used on input line 
-218.
-(pdftex.def)             Requested size: 241.49895pt x 176.97598pt.
-
-<img/dhal_ss_hist_bo.pdf, id=143, 393.9217pt x 266.68005pt>
-File: img/dhal_ss_hist_bo.pdf Graphic file (type pdf)
-
-<use img/dhal_ss_hist_bo.pdf>
-Package pdftex.def Info: img/dhal_ss_hist_bo.pdf used on input line 226.
-(pdftex.def)             Requested size: 155.24895pt x 105.10349pt.
-
-<img/dhal_ss_hist_charge.pdf, id=144, 393.9217pt x 266.68005pt>
-File: img/dhal_ss_hist_charge.pdf Graphic file (type pdf)
-
-<use img/dhal_ss_hist_charge.pdf>
-Package pdftex.def Info: img/dhal_ss_hist_charge.pdf used on input line 233.
-(pdftex.def)             Requested size: 155.24895pt x 105.10349pt.
- [8 <../meetings/18-03-28-flashtalk/img/distrDiCNOPS.pdf>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 294.
-
-<img/thal_ss_hist.pdf, id=191, 380.19856pt x 278.34865pt>
-File: img/thal_ss_hist.pdf Graphic file (type pdf)
-
-<use img/thal_ss_hist.pdf>
-Package pdftex.def Info: img/thal_ss_hist.pdf used on input line 296.
-(pdftex.def)             Requested size: 241.49895pt x 176.80888pt.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 301.
-
-<img/thal_ss_score_vs_v_2d_hist.pdf, id=192, 402.01443pt x 266.97804pt>
-File: img/thal_ss_score_vs_v_2d_hist.pdf Graphic file (type pdf)
-
-<use img/thal_ss_score_vs_v_2d_hist.pdf>
-Package pdftex.def Info: img/thal_ss_score_vs_v_2d_hist.pdf used on input line 
-303.
-(pdftex.def)             Requested size: 241.49895pt x 160.38359pt.
-
-<img/thal_ss_hist_b12.pdf, id=193, 393.9217pt x 266.68005pt>
-File: img/thal_ss_hist_b12.pdf Graphic file (type pdf)
-
-<use img/thal_ss_hist_b12.pdf>
-Package pdftex.def Info: img/thal_ss_hist_b12.pdf used on input line 311.
-(pdftex.def)             Requested size: 155.24895pt x 105.10349pt.
-
-<img/thal_ss_hist_b23.pdf, id=194, 393.9217pt x 266.68005pt>
-File: img/thal_ss_hist_b23.pdf Graphic file (type pdf)
-
-<use img/thal_ss_hist_b23.pdf>
-Package pdftex.def Info: img/thal_ss_hist_b23.pdf used on input line 318.
-(pdftex.def)             Requested size: 155.24895pt x 105.10349pt.
-
-<img/thal_ss_hist_c1.pdf, id=195, 387.53848pt x 266.68005pt>
-File: img/thal_ss_hist_c1.pdf Graphic file (type pdf)
-
-<use img/thal_ss_hist_c1.pdf>
-Package pdftex.def Info: img/thal_ss_hist_c1.pdf used on input line 325.
-(pdftex.def)             Requested size: 155.24895pt x 106.83289pt.
-
-<img/thal_ss_hist_c2.pdf, id=196, 393.9217pt x 266.68005pt>
-File: img/thal_ss_hist_c2.pdf Graphic file (type pdf)
-
-<use img/thal_ss_hist_c2.pdf>
-Package pdftex.def Info: img/thal_ss_hist_c2.pdf used on input line 332.
-(pdftex.def)             Requested size: 155.24895pt x 105.10349pt.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 339.
-
-<img/thal_ss_hist_charge.pdf, id=197, 387.53848pt x 266.68005pt>
-File: img/thal_ss_hist_charge.pdf Graphic file (type pdf)
-
-<use img/thal_ss_hist_charge.pdf>
-Package pdftex.def Info: img/thal_ss_hist_charge.pdf used on input line 341.
-(pdftex.def)             Requested size: 310.4979pt x 213.66579pt.
- [9]) [10 <./img/dhal_ss_hist_bo.pdf> <./img/dhal_ss_hist_charge.pdf
-
-pdfTeX warning: pdflatex (file ./img/dhal_ss_hist_charge.pdf): PDF inclusion: m
-ultiple pdfs with page group included in a single page
->] [11 <./img/thal_ss_hist.pdf> <./img/thal_ss_score_vs_v_2d_hist.pdf
-
-pdfTeX warning: pdflatex (file ./img/thal_ss_score_vs_v_2d_hist.pdf): PDF inclu
-sion: multiple pdfs with page group included in a single page
->] [12 <./img/thal_ss_hist_b12.pdf> <./img/thal_ss_hist_b23.pdf
-
-pdfTeX warning: pdflatex (file ./img/thal_ss_hist_b23.pdf): PDF inclusion: mult
-iple pdfs with page group included in a single page
-> <./img/thal_ss_hist_c1.pdf
-
-pdfTeX warning: pdflatex (file ./img/thal_ss_hist_c1.pdf): PDF inclusion: multi
-ple pdfs with page group included in a single page
-> <./img/thal_ss_hist_c2.pdf
-
-pdfTeX warning: pdflatex (file ./img/thal_ss_hist_c2.pdf): PDF inclusion: multi
-ple pdfs with page group included in a single page
->] [13 <./img/thal_ss_hist_charge.pdf>] (./phase1.aux) ) 
+ ) 
 Here is how much of TeX's memory you used:
- 22059 strings out of 493304
- 447410 string characters out of 6139871
- 522515 words of memory out of 5000000
- 25053 multiletter control sequences out of 15000+600000
+ 21773 strings out of 493304
+ 440133 string characters out of 6139871
+ 519379 words of memory out of 5000000
+ 24777 multiletter control sequences out of 15000+600000
  12110 words of font info for 47 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 68i,11n,76p,10437b,1084s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/symbols/msbm10.pfb>
-Output written on phase1.pdf (13 pages, 295317 bytes).
+ 68i,11n,65p,10437b,288s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/s
+hare/texmf/fonts/type1/public/tex-gyre/qhvr.pfb>
+Output written on phase1.pdf (3 pages, 4180948 bytes).
 PDF statistics:
- 526 PDF objects out of 1000 (max. 8388607)
- 154 compressed objects within 2 object streams
+ 81 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

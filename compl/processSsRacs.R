@@ -112,10 +112,10 @@ g <- ggplot(data=projSsIntoHomo[seq.int(1L,length(projSsIntoHomo$PC1),100L),], a
   geom_point(size = 0.1)
 #g <- g + geom_point(data=projFoIntoHomo[seq.int(1L,length(projFoIntoHomo$PC1),100L),], aes(x=PC1, y=PC2, color='black'), size=0.1)
 g <- g + geom_point(data=scores, aes(x=PC1, y=PC2), size=0.1)
-g <- g + geom_point(data=projSplitIntoHomo, aes(x=PC1, y=PC2), size=1, shape=props$goodConvergence )
+g <- g + geom_point(data=projSplitIntoHomo, aes(x=PC1, y=PC2), size=1, color=props$goodConvergence )
 # http://www.perbang.dk/rgbgradient/
 # g <- g + scale_colour_gradientn(colours = c('black', 'blue', 'red', '#D306DB', '#D721BC','#DC3C9E', '#E15880','#E57361', '#EA8E43' ,'#EFAA25','yellow' ))
-g <- g + scale_colour_gradientn()
+# g <- g + scale_colour_gradientn()
 
 # g <- g + geom_point(data=projSplitIntoHomo, aes(x=PC1, y=PC2))
 g <- g + theme_light() #+ facet_wrap('set')
@@ -123,9 +123,9 @@ g <- g + theme_light() #+ facet_wrap('set')
 # g <- g + scale_size_manual(values = c("ss"=0.1, "homo"=3))
 # g <- g + scale_shape_manual(values = c("ss"=1, "homo"=1))
 
-# cairo_pdf(file="pca.pdf",width = 6, height = 5)
+cairo_pdf(file="pca.pdf",width = 6, height = 5)
 print(g)
-# dev.off()
+dev.off()
 
 # g <- ggplot(data=totalScores, aes(x=PC1, y=PC2)) + stat_bin2d(binwidth = c(4,1)) + theme_light() +geom_point(data=scores,aes(color=metal))
 # print(g)

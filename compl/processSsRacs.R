@@ -1,9 +1,9 @@
-rm(list=ls())
+# rm(list=ls())
 
 # read in the RACs
-ss_racs <- read.csv(file = "ssRACs.csv", header = TRUE)
-fo_racs <- read.csv(file = "foRACs.csv", header = TRUE)
-homo_racs <- read.csv(file = "homolepticRACs.csv", header = TRUE)
+ss_racs <- read.csv(file = "RAC_ssadc.csv", header = TRUE)
+fo_racs <- read.csv(file = "RAC_fo.csv", header = TRUE)
+homo_racs <- read.csv(file = "RAC_ho.csv", header = TRUE)
 
 load(file="selected_all.R")
 load(file="selected_rf_41.Rda")
@@ -58,11 +58,12 @@ split_results_133racs_data <- as.data.frame(split_results_133racs_data)
 ############################
 # PCA with function prcomp #
 ############################
-pca1 = prcomp(homo_rf133racs_data,scale. = FALSE) #scale. = TRUE
+pca1 = prcomp(homo_rf133racs_data,scale. = FALSE) #scale is FALSE because we standardize above
 
 # sqrt of eigenvalues
 eigendecay = pca1$sdev
 plot(eigendecay)
+plot(prcomp(homo_rf133racs,scale. = FALSE)$sdev) # for unstandardized
 
 # PCs (aka scores) [PC1, PC2, ... data points]
 scores = as.data.frame(pca1$x)
@@ -94,6 +95,8 @@ totalScores <- rbind(projSsIntoHomo, scores)
 
 require(plyr)
 require(dplyr)
+require(ggplot2)
+
 
 # # electronegativity 
 # totalScores$enm <- homo_rf133racs$D_mc.chi.2.all
@@ -108,8 +111,7 @@ require(dplyr)
 # HOMO: 
 # PC1 vs PC5 separates the metals
 # PC4 vs PC2 is interesting: cai and esp f.Z.0.ax
-g <- ggplot(data=projSsIntoHomo[seq.int(1L,length(projSsIntoHomo$PC1),100L),], aes(x=PC1, y=PC2, color='black')) +
-  geom_point(size = 0.1)
+g <- ggplot(data=projSsIntoHomo[seq.int(1L,length(projFoIntoHomo$PC1),100L),], aes(x=PC1, y=PC2, color='black')) + geom_point(size = 0.1)
 #g <- g + geom_point(data=projFoIntoHomo[seq.int(1L,length(projFoIntoHomo$PC1),100L),], aes(x=PC1, y=PC2, color='black'), size=0.1)
 g <- g + geom_point(data=scores, aes(x=PC1, y=PC2), size=0.1)
 g <- g + geom_point(data=projSplitIntoHomo, aes(x=PC1, y=PC2), size=1, color=props$goodConvergence )
@@ -123,9 +125,9 @@ g <- g + theme_light() #+ facet_wrap('set')
 # g <- g + scale_size_manual(values = c("ss"=0.1, "homo"=3))
 # g <- g + scale_shape_manual(values = c("ss"=1, "homo"=1))
 
-cairo_pdf(file="pca.pdf",width = 6, height = 5)
+# cairo_pdf(file="pca.pdf",width = 6, height = 5)
 print(g)
-dev.off()
+# dev.off()
 
 # g <- ggplot(data=totalScores, aes(x=PC1, y=PC2)) + stat_bin2d(binwidth = c(4,1)) + theme_light() +geom_point(data=scores,aes(color=metal))
 # print(g)

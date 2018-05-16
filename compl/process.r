@@ -1,4 +1,4 @@
-rm(list=ls())
+# rm(list=ls())
 
 # read in the charged and neutral file
 results1 <- read.csv(file = "unified_results_post.csv")
@@ -64,31 +64,31 @@ require(plyr)
 split_results$metal <- revalue(as.factor(split_results$metal),c("0"="Cr","1"="Mn","2"="Fe","3"="Co"))
 split_results$ox <- as.factor(split_results$ox)
 
-require(ggplot2)
-gg<-ggplot(data=split_results,aes(x=V104,y=split,color=ox,group=ox)) +geom_point() + facet_grid("metal ~.") + theme_light()
-print(gg)
-
-require(reshape2) # enables melt (wide to long format) and cast (vv). plyr and ggplot2 both use long format.
-results.m <- melt(results, measure.vars = c("ox_2_LS_time","ox_3_LS_time","ox_2_HS_time","ox_3_HS_time"), na.rm = TRUE)
-results.m$betterConvergence <- as.factor(results.m$betterConvergence)
-gg<-ggplot(data=results.m, aes(x = value / 3600, group = betterConvergence, fill = betterConvergence)) + 
-    geom_histogram(position = position_dodge(), bins=20) + theme_light()
-print(gg)
-
-
-results$metal<-as.factor(results$metal)
-gg<-ggplot(data=results) + geom_point(size=4,aes(y=ox_2_LS_flag_oct,x=ox_2_LS_time/3600,color=metal),shape=1) +
-                           geom_point(size=4,aes(y=ox_2_HS_flag_oct,x=ox_2_HS_time/3600,color=metal),shape=2) +
-                           geom_point(size=4,aes(y=ox_3_LS_flag_oct,x=ox_3_LS_time/3600,color=metal),shape=3) +
-                           geom_point(size=4,aes(y=ox_3_HS_flag_oct,x=ox_3_HS_time/3600,color=metal),shape=4) +
-                           geom_text(size=4,aes(y=ox_2_LS_flag_oct,x=ox_2_LS_time/3600,color=metal,label=ox2RN),
-                                      position = position_jitter(),data=results[results$ox_2_LS_time>36000, ]) +
-                           geom_text(size=4,aes(y=ox_3_LS_flag_oct,x=ox_3_LS_time/3600,color=metal,label=ox3RN),
-                                      position = position_jitter(),data=results[results$ox_3_LS_time>36000, ]) +
-                           theme_light()
-print(gg)
-#df <- results[,]
-# df$ss3 <- results$ox_3_HS_energy - results$ox_3_LS_energy
-# df$ipls <- results$ox_3_LS_energy - results$ox_2_LS_energy
-# df$iphs <- results$ox_3_HS_energy - results$xo_2_HS_energy
+# require(ggplot2)
+# gg<-ggplot(data=split_results,aes(x=V104,y=split,color=ox,group=ox)) +geom_point() + facet_grid("metal ~.") + theme_light()
+# print(gg)
+# 
+# require(reshape2) # enables melt (wide to long format) and cast (vv). plyr and ggplot2 both use long format.
+# results.m <- melt(results, measure.vars = c("ox_2_LS_time","ox_3_LS_time","ox_2_HS_time","ox_3_HS_time"), na.rm = TRUE)
+# results.m$betterConvergence <- as.factor(results.m$betterConvergence)
+# gg<-ggplot(data=results.m, aes(x = value / 3600, group = betterConvergence, fill = betterConvergence)) + 
+#     geom_histogram(position = position_dodge(), bins=20) + theme_light()
+# print(gg)
+# 
+# 
+# results$metal<-as.factor(results$metal)
+# gg<-ggplot(data=results) + geom_point(size=4,aes(y=ox_2_LS_flag_oct,x=ox_2_LS_time/3600,color=metal),shape=1) +
+#                            geom_point(size=4,aes(y=ox_2_HS_flag_oct,x=ox_2_HS_time/3600,color=metal),shape=2) +
+#                            geom_point(size=4,aes(y=ox_3_LS_flag_oct,x=ox_3_LS_time/3600,color=metal),shape=3) +
+#                            geom_point(size=4,aes(y=ox_3_HS_flag_oct,x=ox_3_HS_time/3600,color=metal),shape=4) +
+#                            geom_text(size=4,aes(y=ox_2_LS_flag_oct,x=ox_2_LS_time/3600,color=metal,label=ox2RN),
+#                                       position = position_jitter(),data=results[results$ox_2_LS_time>36000, ]) +
+#                            geom_text(size=4,aes(y=ox_3_LS_flag_oct,x=ox_3_LS_time/3600,color=metal,label=ox3RN),
+#                                       position = position_jitter(),data=results[results$ox_3_LS_time>36000, ]) +
+#                            theme_light()
+# print(gg)
+# #df <- results[,]
+# # df$ss3 <- results$ox_3_HS_energy - results$ox_3_LS_energy
+# # df$ipls <- results$ox_3_LS_energy - results$ox_2_LS_energy
+# # df$iphs <- results$ox_3_HS_energy - results$xo_2_HS_energy
 

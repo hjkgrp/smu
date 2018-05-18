@@ -156,7 +156,7 @@ else:
     #         plt.show()
 
     print("WS monodentates took: " + str(new_time) + ' s.')
-    write_descriptor_csv_local(list_of_runs,"RAC_ws")
+    write_descriptor_csv_local(list_of_runs,"RAC_ws" + block)
 
 # ----
 
@@ -226,4 +226,4 @@ else:
 
 
     print("WS Bidentates took: " + str(new_time) + ' s.')
-    write_descriptor_csv_local(list_of_runs2,"RAC_ws_b")
+    write_descriptor_csv_local(list_of_runs2,"RAC_ws_b_" + block)

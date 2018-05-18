@@ -1,8 +1,8 @@
-# rm(list=ls())
+rm(list=ls())
 
 # read in the charged and neutral file
 results1 <- read.csv(file = "unified_results_post.csv")
-results2 <- read.csv(file = "unified_results_post_charged.csv")
+# results2 <- read.csv(file = "unified_results_post_charged.csv")
 
 # name rows and cols (ie but them into rownames) and rm the actual col
 racs1 <- read.csv(file = "consistent_descriptor_file.csv",header = TRUE)
@@ -17,6 +17,7 @@ results1$charge <- 0 #rep(0,nrow(results1))
 results2$charge <- 1 #rep(1,nrow(results2)) 
 racs <- rbind(racs1, racs2)
 results <- rbind(results1, results2)
+results <- results1
 
 # generate all columns that are interesting to us
 colstokeep <- c("name","gene","alpha","metal","ox2RN","ox3RN","ox_2_split","ox_3_split")

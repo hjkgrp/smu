@@ -2,22 +2,36 @@ rm(list=ls())
 
 # read in the charged and neutral file
 results1 <- read.csv(file = "unified_results_post.csv")
-# results2 <- read.csv(file = "unified_results_post_charged.csv")
+results2 <- read.csv(file = "unified_results_post_charged.csv")
+results3 <- read.csv(file = "unified_results_post_bi.csv")
+results4 <- read.csv(file = "unified_results_post_charged_bi.csv")
+
 
 # name rows and cols (ie but them into rownames) and rm the actual col
 racs1 <- read.csv(file = "consistent_descriptor_file.csv",header = TRUE)
 rownames(racs1)<-racs1$runs
 racs1$runs<-NULL
+
 racs2 <- read.csv(file = "consistent_descriptor_file_charged.csv",header = TRUE)
 rownames(racs2)<-racs2$runs
 racs2$runs<-NULL
 
+racs3 <- read.csv(file = "consistent_descriptor_file_bi.csv",header = TRUE)
+rownames(racs3)<-rac32$runs
+racs3$runs<-NULL
+
+racs4 <- read.csv(file = "consistent_descriptor_file_charged_bi.csv",header = TRUE)
+rownames(racs4)<-racs4$runs
+racs4$runs<-NULL
+
 # denote the charged ligands with 1 the neutral ones with 0 and combine them
 results1$charge <- 0 #rep(0,nrow(results1)) 
 results2$charge <- 1 #rep(1,nrow(results2)) 
-racs <- rbind(racs1, racs2)
-results <- rbind(results1, results2)
-results <- results1
+results3$charge <- 0#rep(1,nrow(results2)) 
+results4$charge <- 1 #rep(1,nrow(results2)) 
+
+racs <- rbind(rbind(rbind(racs1, racs2), racs3), racs4)
+results <- rbind(rbind(rbind(results1, results2), results3), results4)
 
 # generate all columns that are interesting to us
 colstokeep <- c("name","gene","alpha","metal","ox2RN","ox3RN","ox_2_split","ox_3_split")

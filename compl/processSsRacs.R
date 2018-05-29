@@ -1,4 +1,7 @@
 # rm(list=ls())
+require(plyr)
+require(dplyr)
+require(ggplot2)
 
 loadSet <-function(name){
   nameStr = deparse(substitute(name))
@@ -34,7 +37,12 @@ ft_m_racs <-loadSet(ft) # contains only mono
 ft_b_racs <- loadSet(ft_b)
 ft_racs <- rbind(ft_m_racs, ft_b_racs)
 
-superset <- do.call("rbind", list(homo_racs, ss_racs, fo_racs, ft_racs))
+ws_m_racs <- loadSet(ws) # contains random sample of ws monodentates (150k)
+ws_b_racs <- loadSet(ws_b) # contains random sample of ws bidentates
+ws_racs <- rbind(ws_m_racs, ws_b_racs)
+
+
+superset <- do.call("rbind", list(homo_racs, ss_racs, fo_racs, ft_racs, ws_racs))
 
 # read in descriptors
 load(file="selected_all.R")
@@ -66,6 +74,13 @@ ft_b_rf153racs <- ft_b_racs[,rf153vars]
 ft_rf39racs <- ft_racs[,rf39vars]
 ft_rf153racs <- ft_racs[,rf153vars]
 
+ws_m_rf39racs <- ws_m_racs[,rf39vars]
+ws_b_rf39racs <- ws_b_racs[,rf39vars]
+ws_m_rf153racs <- ws_m_racs[,rf153vars]
+ws_b_rf153racs <- ws_b_racs[,rf153vars]
+ws_rf39racs <- ws_racs[,rf39vars]
+ws_rf153racs <- ws_racs[,rf153vars]
+
 superset_rf39racs <- superset[,rf39vars]
 superset_rf153racs <- superset[,rf153vars]
 
@@ -82,7 +97,8 @@ superset_setnames <-  superset_rf153racs[ , apply(superset_rf153racs, 2, var) !=
 homo_rf133racs <- homo_rf153racs[ , apply(superset_rf153racs, 2, var) != 0]
 ss_rf133racs   <- ss_rf153racs[ , apply(superset_rf153racs, 2, var) != 0]
 ft_rf133racs <- ft_rf153racs[ , apply(superset_rf153racs, 2, var) != 0]
-fo_rf133racs   <- fo_rf153racs[ , apply(homo_rf153racs, 2, var) != 0]
+fo_rf133racs   <- fo_rf153racs[ , apply(superset_rf153racs, 2, var) != 0]
+ws_rf133racs   <- ws_rf153racs[ , apply(superset_rf153racs, 2, var) != 0]
 split_results_rf133racs <- split_results_153racs[ , apply(superset_rf153racs, 2, var) != 0]
 # 39
 superset_rf39racs <- superset_rf39racs[ , apply(superset_rf39racs, 2, var) != 0]
@@ -90,6 +106,7 @@ homo_rf39racs <- homo_rf39racs[ , apply(superset_rf39racs, 2, var) != 0]
 ss_rf39racs   <- ss_rf39racs[ , apply(superset_rf39racs, 2, var) != 0]
 ft_rf39racs <- ft_rf39racs[ , apply(superset_rf39racs, 2, var) != 0]
 fo_rf39racs   <- fo_rf39racs[ , apply(homo_rf39racs, 2, var) != 0]
+ws_rf39racs   <- ws_rf39racs[ , apply(homo_rf39racs, 2, var) != 0]
 split_results_rf39racs <- split_results_39racs[ , apply(superset_rf39racs, 2, var) != 0]
 
 props$goodConvergence <- as.factor(props$ox_2_HS_flag_oct + props$ox_2_LS_flag_oct + props$ox_3_LS_flag_oct + props$ox_3_HS_flag_oct)
@@ -116,12 +133,14 @@ homo_rf133racs_data <- standardizeSet(homo_rf133racs, superset_rf133racs_center,
 ss_rf133racs_data <- standardizeSet(ss_rf133racs, superset_rf133racs_center, superset_rf133racs_scale)
 fo_rf133racs_data <- standardizeSet(fo_rf133racs, superset_rf133racs_center, superset_rf133racs_scale)
 ft_rf133racs_data <- standardizeSet(ft_rf133racs, superset_rf133racs_center, superset_rf133racs_scale)
+ws_rf133racs_data <- standardizeSet(ws_rf133racs, superset_rf133racs_center, superset_rf133racs_scale)
 split_results_rf133racs_data <- standardizeSet(split_results_rf133racs, superset_rf133racs_center, superset_rf133racs_scale)
 # 39
 homo_rf39racs_data <- standardizeSet(homo_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)
 ss_rf39racs_data <- standardizeSet(ss_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)
 fo_rf39racs_data <- standardizeSet(fo_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)
 ft_rf39racs_data <- standardizeSet(ft_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)
+ws_rf39racs_data <- standardizeSet(ws_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)
 split_results_rf39racs_data <- standardizeSet(split_results_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)
 
 ############################
@@ -169,10 +188,15 @@ projFtIntoSu$set <- 'ft'
 projFtIntoSu$metal <- revalue(as.factor(sqrt(ft_rf133racs$mc.Z.0.all)), c('24'='Cr','25'='Mn','26'='Fe','27'='Co'))
 projFtIntoSu$cai <- (4*sqrt(ft_rf133racs$lc.Z.0.eq) + 2*sqrt(ft_rf133racs$lc.Z.0.ax))/6
 
-projSplitIntoSu <- as.data.frame(predict(pca1, split_results_133racs_data))
+projWsIntoSu <- as.data.frame(predict(pca1, ws_rf133racs_data))
+projWsIntoSu$set <- 'ws'
+projWsIntoSu$metal <- revalue(as.factor(sqrt(ws_rf133racs$mc.Z.0.all)), c('24'='Cr','25'='Mn','26'='Fe','27'='Co'))
+projWsIntoSu$cai <- (4*sqrt(ws_rf133racs$lc.Z.0.eq) + 2*sqrt(ws_rf133racs$lc.Z.0.ax))/6
+
+projSplitIntoSu <- as.data.frame(predict(pca1, split_results_rf133racs_data))
 projSplitIntoSu$set <- 'calcHomo'
-projSplitIntoSu$metal <- revalue(as.factor(sqrt(split_results_133racs$mc.Z.0.all)), c('24'='Cr','25'='Mn','26'='Fe','27'='Co'))
-projSplitIntoSu$cai <- (4*sqrt(split_results_133racs$lc.Z.0.eq) + 2*sqrt(split_results_133racs$lc.Z.0.ax))/6
+projSplitIntoSu$metal <- revalue(as.factor(sqrt(split_results_rf133racs$mc.Z.0.all)), c('24'='Cr','25'='Mn','26'='Fe','27'='Co'))
+projSplitIntoSu$cai <- (4*sqrt(split_results_rf133racs$lc.Z.0.eq) + 2*sqrt(split_results_rf133racs$lc.Z.0.ax))/6
 # <<<<<<<<<<<<<<<<155
 
 #>>>>>>>>>>>>>>>>>39
@@ -211,17 +235,19 @@ projFtIntoSu2$metal <- revalue(as.factor(sqrt(ft_rf39racs$mc.Z.0.all)), c('24'='
 projFtIntoSu2$cai <- (4*sqrt(ft_rf39racs$lc.Z.0.eq) + 2*sqrt(ft_rf39racs$lc.Z.0.ax))/6
 projFtIntoSu2$set <- ft_racs$set
 
-projSplitIntoSu2 <- as.data.frame(predict(pca2, split_results_39racs_data))
-projSplitIntoSu2$set <- 'calcHomo'
-projSplitIntoSu2$metal <- revalue(as.factor(sqrt(split_results_39racs$mc.Z.0.all)), c('24'='Cr','25'='Mn','26'='Fe','27'='Co'))
-projSplitIntoSu2$cai <- (4*sqrt(split_results_39racs$lc.Z.0.eq) + 2*sqrt(split_results_39racs$lc.Z.0.ax))/6
+projWsIntoSu2 <- as.data.frame(predict(pca2, ws_rf39racs_data))
+projWsIntoSu2$set <- 'ws'
+projWsIntoSu2$metal <- revalue(as.factor(sqrt(ws_rf39racs$mc.Z.0.all)), c('24'='Cr','25'='Mn','26'='Fe','27'='Co'))
+projWsIntoSu2$cai <- (4*sqrt(ws_rf39racs$lc.Z.0.eq) + 2*sqrt(ws_rf39racs$lc.Z.0.ax))/6
+projWsIntoSu2$set <- ws_racs$set
+
+projSplitIntoSu2 <- as.data.frame(predict(pca2, split_results_rf39racs_data))
+projSplitIntoSu2$set <- 'calcHomo'              
+projSplitIntoSu2$metal <- revalue(as.factor(sqrt(split_results_rf39racs_data$mc.Z.0.all)), c('24'='Cr','25'='Mn','26'='Fe','27'='Co'))
+projSplitIntoSu2$cai <- (4*sqrt(split_results_rf39racs_data$lc.Z.0.eq) + 2*sqrt(split_results_rf39racs_data$lc.Z.0.ax))/6
 #<<<<<<<<<<<<<< 39
 
-# totalScores <- rbind(projSsIntoHomo, scores)
-
-require(plyr)
-require(dplyr)
-require(ggplot2)
+# totalScores2 <- rbind(projSsIntoSu2, scores2)
 
 # # electronegativity 
 # # proxy for number of atoms
@@ -246,15 +272,16 @@ g <- ggplot(data=totalScores, aes(x=PC1, y=PC2)) + stat_bin2d(binwidth = c(4,1))
 print(g)
 
 # eeeeeeeeeeeeeeeebi-----------------------
-g <- ggplot(data=projHomoIntoSu2[seq.int(1L,length(projHomoIntoSu2$PC1),1L),],
-            aes(x=PC1, y=PC2)) + # color=cai
-  geom_point(size = 0.1, color = 'black')
-g <- g + geom_point(data=scores2[seq.int(1L,length(scores2$PC1),1L),], size = 0.1, aes(color=set))
+g <- ggplot(data=projSplitIntoSu2[seq.int(1L,length(projSplitIntoSu2$PC1),1L),],
+            aes(x=PC1, y=PC2, color = props$goodConvergence)) + # color=cai
+            geom_point(size = 5)
+g <- g + geom_point(data=scores2[seq.int(1L,length(scores2$PC1),10L),], size = 0.2, aes(color='SU'))
 g <- g + guides(color = guide_legend(override.aes = list(size = 5)))
-g <- g  #+ facet_wrap('set')
+g <- g + ggtitle("PCA of all sets with homoleptic results superimposed") + 
+g <- g + scale_fill_discrete(name="asd")
 
-# cairo_pdf(file="pca_rf39_HoIntoSU_bymetal.pdf",width = 6, height = 5)
-print(g + ggtitle("orange: HO, grad: SU"))
+# cairo_pdf(file="pca_rf39_WsIntoSU.pdf",width = 6, height = 5)
+print(g)
 # dev.off()
 
 

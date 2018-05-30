@@ -5,6 +5,7 @@
 \useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
 \useinnertheme{circles}
 \usepackage{booktabs}
+\usepackage[percent]{overpic}
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 
 \definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
@@ -83,37 +84,129 @@
 %\subsection{First Subsection}
 
 \begin{frame}
-\frametitle{Reduction of the full small ligand universe: Mo, Di, Bi}
+\frametitle{Reduction of the full space}
+\centering
 
 \begin{tikzpicture}
 [node distance=.5cm,
 start chain=going below,]
-\node[punktchain, join] (full) {Full Space};
+\only<1,3->{\node[punktchain, join] (full) {Full Space};}
+\only<2>{\node[punktchain, join,draw,UBCblue, ultra thick,fill=none] (full) {Full Space};}
 \node[punktchain, join] (scored){Scored Space};
 \node[punktchain, join] (desi){Desired Space};
 \node[punktchain, join] (enum){Enumerated Space};
 \node[punktchain, join] (sampl){Sample \& Build };
+\visible<2>{\node[left of = desi,node distance = 6cm,rectangle,draw,UBCblue, ultra thick]  (i1) {\includegraphics[width=3.5cm]{img/absurd.png}};}
+\visible<2>{\path[draw,ultra thick, ->, UBCgrey] (full.west) -- (i1.east);}
+\visible<3>{\node[left of = desi,node distance = 6cm]  (i2) {\includegraphics[width=4.5cm]{img/sensible.png}};}
 \end{tikzpicture}
 
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Reduction of the full small ligand universe: Mo, Di, Bi}
-
+\frametitle{Full Space $\rightarrow$ Scored Space}
+% 5625 is non-trivial because different allocations of the electrons result in the same overall charge (e.g. -1/+1 == -2/+2)
+\begin{itemize}
+\item charge $\in [-2,+2]$
+\item H atoms $\in [0,4]$
+\item element $\in \textrm{\{C,~N,~O,~P,~S\}}$
+\end{itemize}
+~\\
 \begin{tikzpicture}
 [node distance=.5cm,
 start chain=going below,]
-\node[punktchain, join] (full) {Full Space: \\ M:125, D:5625, B:625};
+\node[punktchain, join] (full) {Full Space: \\ M:125, D:5625, B:5625};
 \node[punktchain, join] (scored){Scored Space: \\ 50, 1500, 201};
-
-
 \draw[tuborg, decoration={brace}] let \p1=(full.south), \p2=(scored.north) in
 ($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] {\circled{1} charge, sterics, octet, shell, bond order};
-
 \end{tikzpicture}
+~\\
+~\\
+These rules \circled{1} are demonstrated in the following for the di-heavy-atoms.
+\end{frame}
+
+\begin{frame}
+\frametitle{Rules \circled{1} to reduce Full Space $\rightarrow$ Scored Space}
+Constraints:
+\begin{itemize}
+	\item Charge $c = c_1 + c_2 \leq 1 $
+	\item Sterics: H atoms $<$ 4 on connecting atoms
+	\item Closed shell (even number of electrons)
+\end{itemize}
+~\\
+~\\
+$\rightarrow$ Reduces 5625 ligands to 1171.
+\end{frame}
 
 
+\begin{frame}
+\frametitle{Rules \circled{1} to reduce Full Space $\rightarrow$ Scored Space}
+\begin{equation}
+u_{\textrm{octet,i}} = 
+\begin{cases}
+10 + 2 \cdot (8-VE_i) 	& \mathrm{if}~ 8-VE_i < 0 \\
+10 - 1 \cdot (8-VE_i) 	& \mathrm{if}~ 8-VE_i \geq 0
+\end{cases}
+\end{equation}
+
+\begin{equation}
+u_{\textrm{charge}} = 
+\begin{cases}
+0	&	\mathrm{if}~ c_1 + c_2 > 0 \\
+3	&	\mathrm{if}~ 0 \geq c_1 + c_2 \geq -2 \\
+1   &	\mathrm{if}~ c_1 + c_2 = -3 \\
+0   &	\mathrm{if}~ c_1 + c_2 = -4 
+\end{cases}
+\end{equation}
+
+\begin{equation}
+u_{\textrm{VSEPR}} = 
+ 5-|\underbrace{(VE_1 - 2 \cdot LP_1 + c_1 - 2 \cdot h_1)}_{ready~electrons} -  \underbrace{(VE_2 - 2 \cdot LP_2 + c_2 - 2 \cdot h_2)}_{ready~electrons}|
+\end{equation}
+\end{frame}
+
+\begin{frame}
+\frametitle{Rules \circled{1} to reduce Full Space $\rightarrow$ Scored Space}
+
+\begin{equation}
+u_{\textrm{CA}} = 
+\begin{cases}
+1	&	\mathrm{if}~ h_1 = 4 \\
+2	&	\mathrm{if}~ h_1 = 3 \\
+3   &	\mathrm{if}~ \textrm{else} 
+\end{cases}
+\end{equation}
+
+\begin{equation}
+u_{\textrm{shell}} = 
+\begin{cases}
+1	&	\mathrm{if}~ \neg (VE_1+VE_2) \% 2 \\
+0	&	\mathrm{if}~ \textrm{else}
+\end{cases}
+\end{equation}
+
+\begin{equation}
+u_{\textrm{total}} = u_{\textrm{shell}} \cdot \left( \frac{1}{2} ( u_{\textrm{octet,1}} + u_{\textrm{octet,2}} ) + u_{\textrm{charge}} + u_{\textrm{VSEPR}} + u_{\textrm{CA}} \right)
+\end{equation}
+
+where $VE_i$ denotes the number of valence electrons, $LP_i$ the number of lone pairs.
+\end{frame}
+
+\begin{frame}
+\frametitle{Distribution and Examples}
+\centering
+\begin{overpic}[width=0.8\linewidth]{img/distrDiCNOPS.pdf}
+	\put (13,24) {[C--]=[OH2--]}
+	\put (15,31) {[N--]-[PH4--]}
+	\put (25,37) {[CH3]-[SH2-]}
+	\put (30,45) {[PH++]\#0[SH3-]}
+	
+	\put (56,53) {[NH2]-[OH]}
+	\put (80,57) {[C+]\#[O-]}
+	\put (78,51) {[O-]\#[O-]}
+\end{overpic}
+\includegraphics[width=3.5cm]{img/evenlesssens.png}
 \end{frame}
 
 \begin{frame}
@@ -239,6 +332,7 @@ The homoleptics (ho) span the strong symmetry (ss) and "5+1" (fo) set.
 \begin{figure}
 \includegraphics[width=0.65\linewidth]{img/strongsymMonodentates_PairwiseCorr.png}
 \end{figure}
+\centering
 \end{frame}
 
 \begin{frame}

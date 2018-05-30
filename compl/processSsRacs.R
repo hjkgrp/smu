@@ -87,6 +87,8 @@ superset_rf153racs <- superset[,rf153vars]
 split_results_39racs <- split_results[,rf39vars]
 split_results_153racs <- split_results[,rf153vars]
 props <- (split_results[,!(colnames(split_results) %in% (rf153vars))])
+props$goodConvergence <- as.factor(props$ox_2_HS_flag_oct + props$ox_2_LS_flag_oct + props$ox_3_LS_flag_oct + props$ox_3_HS_flag_oct)
+
 
 # Apply the variance function 'var' on all cols ('2' means cols) of rf39racs. Throw out the one's with zero variance for PCA later.
 # which(apply(rf153racs, 2, var)==0)
@@ -100,6 +102,7 @@ ft_rf133racs <- ft_rf153racs[ , apply(superset_rf153racs, 2, var) != 0]
 fo_rf133racs   <- fo_rf153racs[ , apply(superset_rf153racs, 2, var) != 0]
 ws_rf133racs   <- ws_rf153racs[ , apply(superset_rf153racs, 2, var) != 0]
 split_results_rf133racs <- split_results_153racs[ , apply(superset_rf153racs, 2, var) != 0]
+
 # 39
 superset_rf39racs <- superset_rf39racs[ , apply(superset_rf39racs, 2, var) != 0]
 homo_rf39racs <- homo_rf39racs[ , apply(superset_rf39racs, 2, var) != 0]
@@ -109,7 +112,6 @@ fo_rf39racs   <- fo_rf39racs[ , apply(homo_rf39racs, 2, var) != 0]
 ws_rf39racs   <- ws_rf39racs[ , apply(homo_rf39racs, 2, var) != 0]
 split_results_rf39racs <- split_results_39racs[ , apply(superset_rf39racs, 2, var) != 0]
 
-props$goodConvergence <- as.factor(props$ox_2_HS_flag_oct + props$ox_2_LS_flag_oct + props$ox_3_LS_flag_oct + props$ox_3_HS_flag_oct)
 
 ###############
 # Standardize #
@@ -148,6 +150,9 @@ split_results_rf39racs_data <- standardizeSet(split_results_rf39racs, superset_r
 ############################
 pca1 = prcomp(superset_rf133racs_data,scale. = FALSE) #scale is FALSE because we standardize above
 pca2 = prcomp(superset_rf39racs_data,scale. = FALSE) #scale is FALSE because we standardize above
+
+# use only descriptors with < 3 length:
+pca3 = prcomp(superset_rf39racs_data[,],scale. = FALSE)
 
 # sqrt of eigenvalues
 eigendecay1 = pca1$sdev
@@ -278,13 +283,25 @@ g <- ggplot(data=projSplitIntoSu2[seq.int(1L,length(projSplitIntoSu2$PC1),1L),],
 g <- g + geom_point(data=scores2[seq.int(1L,length(scores2$PC1),10L),], size = 0.2, aes(color='SU'))
 g <- g + guides(color = guide_legend(override.aes = list(size = 5)))
 g <- g + ggtitle("PCA of all sets with homoleptic results superimposed") + 
-g <- g + scale_fill_discrete(name="asd")
+  labs(color='Convergence')  
 
-# cairo_pdf(file="pca_rf39_WsIntoSU.pdf",width = 6, height = 5)
+
+# cairo_pdf(file="pca_rf39_SplitIntoSU_convergence.pdf",width = 6, height = 5)
 print(g)
 # dev.off()
 
+# -- t-SNE
 
+require(tsne)
+colors = rainbow(length(unique(split_[,40])))
+names(colors) = unique(split_[,40])
+ecb = function(x,y){ plot(x,t='n'); text(x,labels=split_[,40], col=colors[split_[,40]]) }
+
+cairo_pdf(file="tsne_50_rf39_split",width = 6, height = 5)
+conv_iris = tsne(split_[,1:39], epoch_callback = ecb, perplexity=50)
+dev.off()
+
+# --
 g <- ggplot(data=totalScores2, aes(x=PC1, y=PC2)) + stat_bin2d(binwidth = c(4,1)) + theme_light() 
 #g <- g + geom_point(data=scores2[seq.int(1L,length(scores2$PC1),100L),],aes(color=metal))
 print(g)

@@ -55,8 +55,15 @@ results$betterConvergence <- results$ox_2_HS_flag_oct + results$ox_2_LS_flag_oct
 results$ox_2_split <- results$ox_2_HS_energy - results$ox_2_LS_energy
 results$ox_3_split <- results$ox_3_HS_energy - results$ox_3_LS_energy
 
+
+results[is.na(results$ox_2_HS_flag_oct), ]$ox_2_HS_flag_oct <- 0
+results[is.na(results$ox_2_LS_flag_oct), ]$ox_2_LS_flag_oct <- 0
+results[is.na(results$ox_3_HS_flag_oct), ]$ox_3_HS_flag_oct <- 0
+results[is.na(results$ox_3_LS_flag_oct), ]$ox_3_LS_flag_oct <- 0 
+
 # set up another df for ox_2 complexes that have all the needed energies non-nan 
-ox_2_split_results <- results[!(is.na(results$ox_2_split)) & results$ox_2_HS_flag_oct == 1 & results$ox_2_LS_flag_oct == 1 ,colstokeep]
+ox_2_split_results <- results[!(is.na(results$ox_2_split)) & results$ox_2_HS_flag_oct == 1 &
+                                results$ox_2_LS_flag_oct == 1 ,colstokeep]
 ox_2_split_results$split  <- ox_2_split_results$ox_2_split
 ox_2_split_results$ox_2_split <- NULL
 ox_2_split_results$ox_3_split <- NULL
@@ -82,7 +89,7 @@ split_results <- rbind(ox_2_split_results,ox_3_split_results)
 require(plyr)
 split_results$metal <- revalue(as.factor(split_results$metal),c("0"="Cr","1"="Mn","2"="Fe","3"="Co"))
 split_results$ox <- as.factor(split_results$ox)
-split_results$run <-
+
 
 # require(ggplot2)
 # gg<-ggplot(data=split_results,aes(x=V104,y=split,color=ox,group=ox)) +geom_point() + facet_grid("metal ~.") + theme_light()

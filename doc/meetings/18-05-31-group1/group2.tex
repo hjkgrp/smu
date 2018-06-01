@@ -9,7 +9,6 @@
 \usepackage[percent]{overpic}
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 \usepackage{relsize}
-\usepackage{chemfig}
 \usepackage{tkz-euclide}
 \usepackage{calc}
 \usepackage{mathpazo}
@@ -17,7 +16,7 @@
 \usepackage{rotating}
 \usepackage[scaled]{helvet}
 \usepackage{epstopdf}
-\usepackage{chemfig}
+%\usepackage{chemfig}
 \usepackage{pgfgantt}
 \usepackage{bbding}
 \usepackage[justification=centering]{caption}
@@ -27,7 +26,7 @@
 \usetikzlibrary{shapes.geometric, arrows}
 \usepackage{amssymb}
 \usepackage{amsmath}
-\usetikzlibrary{calc}  
+%\usetikzlibrary{calc} 
 %\renewcommand{\dateseparator}{.}
 \usepackage{textpos}
 \usepackage{tikz}
@@ -38,7 +37,6 @@
 \usetikzlibrary{calc}   
 \usepackage{mathtools}
 \usepackage[numbers,sort]{natbib}
-\usepackage{chemfig}
 \usepackage[normalem]{ulem}
 \usepackage{gensymb}
 \usepackage{multirow}
@@ -237,10 +235,10 @@ mymilestone right shift=0pt
 \end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{Connecting Structure and Activity}
-How to calculate properties?\footnote{\tiny{Van Santen, R. A., and Neurock, M. \textit{Molecular heterogeneous catalysis: a conceptual and computational approach}. John Wiley \& Sons, 2009.}}
-\input{methods}
-\end{frame}
+%\begin{frame}\frametitle{Connecting Structure and Activity}
+%How to calculate properties?\footnote{\tiny{Van Santen, R. A., and Neurock, M. \textit{Molecular heterogeneous catalysis: a conceptual and computational approach}. John Wiley \& Sons, 2009.}}
+%\input{methods}
+%\end{frame}
 
 \begin{frame}
 \frametitle{Procedure}
@@ -317,7 +315,7 @@ $\rightarrow$ Reduces 5625 ligands to 1171.
 
 \begin{frame}
 \frametitle{Octet Rule}
-visualization
+Molecules that fulfill the octet rule are more stable.
 \begin{equation}
 u_{\textrm{octet,i}} = 
 \begin{cases}
@@ -329,11 +327,17 @@ u_{\textrm{octet,i}} =
 \begin{equation}
 u_{\textrm{octet}} = \frac{1}{2} \sum_i^2 u_{\textrm{octet,1}} + u_{\textrm{octet,2}} 
 \end{equation}
+
+\begin{tikzpicture}
+{\node (octet1) {\includegraphics[width=4.5cm]{img/octet.pdf}};}
+{\node[left of = octet1, node distance = 6cm] (octet2) {\includegraphics[width=3.5cm]{img/octet2.png}};}
+\end{tikzpicture}
+
 \end{frame}
 
 \begin{frame}
 \frametitle{Charge Constraints}
-visualization
+We reward only mildly negatively charged compounds.
 \begin{equation}
 u_{\textrm{charge}} = 
 \begin{cases}
@@ -343,27 +347,31 @@ u_{\textrm{charge}} =
 0   &	\mathrm{if}~ c_1 + c_2 = -4 
 \end{cases}
 \end{equation}
+\includegraphics[width=5cm]{img/charge.pdf}
+\centering
 \end{frame}
 
 \begin{frame}
 \frametitle{VSEPR Constraints}
-visualization
+If two atoms have the same amount of bond ready electrons, they are more stable.
 \begin{equation}
-u_{\textrm{VSEPR}} = 
- 5- \underset{i}{\textrm{Diff}} \left( VE_i - 2 \cdot LP_i + c_i - 2 \cdot h_i \right)
+u_{\textrm{VSEPR}} =  5-\underset{i}{\textrm{Diff}} \left( VE_i - 2 \cdot LP_i + c_i - 2 \cdot h_i \right)
 \end{equation}
+~\\
+~\\
+\includegraphics[width=3.5cm]{img/octet2.png}
+\centering
 \end{frame}
 
 
 \begin{frame}
 \frametitle{Sterics}
-visualization
+All compounds with more than three H atoms on the connecting atom will be sterically hindered.
 \begin{equation}
 u_{\textrm{CA}} = 
 \begin{cases}
-1	&	\mathrm{if}~ h_1 = 4 \\
 2	&	\mathrm{if}~ h_1 = 3 \\
-3   &	\textrm{else} 
+3   &	\mathrm{if}~ h_1 < 3
 \end{cases}
 \end{equation}
 \end{frame}
@@ -454,7 +462,47 @@ This gives us 553 ligands in total.
 \subsection{General}
 
 \begin{frame}
-example molecule for each symmetry class for visualization that the next slide is more graspable.
+MOLECULE VIZ OF EACH CLASS
+%\begin{center}
+%	\begin{scriptsize}
+%		\begin{tikzpicture}
+%		\draw[thick, use as bounding box](-1,-1) rectangle (10,5);
+%		% % % %
+%		
+%		\node [color=black] (lab11) at (1,4.7) {homoleptic};
+%		
+%		\node (met) at (1,3.5){\setatomsep{25pt}\chemfig{{L_1}>:[:-30]{{\color{black}M}}([:-150]<{L_1})([:90]-{{L_1}})(<:[:30]L_1)(<[:-30]L_1)([:-90]
+%				-{{L_1}})}};
+%		
+%		% % %
+%		\node [color=black] (lab21) at (4,4.7) {5 +1};
+%		\node (met21) at (4,3.5){\setatomsep{25pt}\chemfig{{L_1}>:[:-30]{{\color{black}M}}([:-150]<{L_1})([:90]-{{L_1}})(<:[:30]L_1)(<[:-30]L_1)([:-90]-{\color{red}{L_2}\color{black}})}};
+%		
+%		
+%		% % %
+%		\node [color=black] (lab12) at (1,-0.7) {axial symmetry};
+%		
+%		\node (met12) at (1,0.5){\setatomsep{25pt}\chemfig{\color{red}{L_2}\color{black}>:[:-30]{{\color{black}M}}([:-150]<\color{red}{L_2})([:90]-{ \color{black}{L_1}})(<:[:30]\color{red}{L_2\color{black}})(<[:-30]{\color{red}L_2}\color{black})([:-90]-{{L_1}})}};
+%		
+%		
+%		% % %
+%		\node [color=black] (lab12) at (4,-0.7) {axial asym/weak sym};
+%		
+%		\node (met) at (4,0.5){\setatomsep{25pt}\chemfig{{L_2}>:[:-30]{{\color{black}M}}([:-150]<{L_2})([:90]-{\color{red}{L_1}})(<:[:30]L_2)(<[:-30]L_2)([:-90]-{\color{blue}{L_3}})}};
+%		
+%		
+%		% % %
+%		\node [color=black] (lab12) at (7,4.7) {equitorial asym};
+%		\node (met) at (7,3.5){\setatomsep{25pt}\chemfig{{L_1}>:[:-30]{{\color{black}M}}([:-150]<{L_2})([:90]-{{L_3}})(<:[:30]L_4)(<[:-30]L_5)([:-90]-{{L_6}})}};
+%		
+%		
+%		% % %
+%		\node [color=black] (lab12) at (7,-0.7) {4 +2};
+%		
+%		\node (met) at (7,0.5){\setatomsep{25pt}\chemfig{{L_1}>:[:-30]{{\color{black}M}}([:-150]<{L_2})([:90]-{{L_3}})(<:[:30]L_4)(<[:-30]L_5)([:-90]-{{L_6}})}};
+%		\end{tikzpicture}
+%	\end{scriptsize}
+%\end{center}
 \end{frame}
 
 
@@ -507,20 +555,21 @@ example molecule for each symmetry class for visualization that the next slide i
 \begin{frame}
 \frametitle{Principal Component Analysis}
 The homoleptics (ho) span the strong symmetry (ss) and "5+1" (fo) set.
-\begin{figure}
-\includegraphics[width=0.65\linewidth]{img/pca.pdf}
-\caption{asd} 
-\end{figure}
+
 what are the the PCs, which explaines which?\\
 two slides: first of ho with rac155. new dataset into space, it spans the same idea.\\
 just show only homo first colored by different props then show into SU. rac39 \\
 show decay
+
+\begin{figure}
+\includegraphics[width=0.65\linewidth]{img/pca.pdf}
+\end{figure}
+
 \end{frame}
 
 \begin{frame}
 	\frametitle{Footprint}
-	We use five properties to characterize the ligand field and generate a five dimensional distribution:\\
-	inspired by MCDL25\\
+	We use five properties inspired by MCDL25 to characterize the ligand field and generate a five dimensional distribution:\\
 	\begin{itemize}
 	\item total charge
 	\item total valence electrons
@@ -531,8 +580,8 @@ show decay
 \end{frame}
 
 \begin{frame}
-\frametitle{Correlation analysis for strongly symmetric monodentates }
-best case: uniform gray. correl are EN and stuff obv. we dont want very peaky comps.
+\frametitle{Correlations for strongly symmetric monodentates}
+The less peaky the better.
 \begin{figure}
 \includegraphics[width=0.65\linewidth]{img/strongsymMonodentates_PairwiseCorr.png}
 \end{figure}
@@ -541,14 +590,14 @@ best case: uniform gray. correl are EN and stuff obv. we dont want very peaky co
 
 \begin{frame}
 \frametitle{Entropy and KDE}
-We then calculate the entropy, $H_{\textrm{KDE}}$, of the Kernel Density Estimated distrbution. We want it to be uniform not to oversample.
-
-...VIZ of what high and low entropy means...
+We then calculate the entropy, $H_{\textrm{KDE}}$, of the Kernel Density Estimated distrbution. We want it to be uniform (high entropy) not to oversample.
+\includegraphics[width=0.8\linewidth]{img/entropy_demp.pdf}
+\centering
 \end{frame}
 
 \begin{frame}
 \frametitle{Example of KDE slice}
-Dimensions $^{\textrm{lc}}_{\textrm{ax,eq}}\chi_1$ vs. charge in $H_{\textrm{KDE}}$ for strongly symmetric monodentates.
+Dimensions $\prescript{\textrm{lc}}{\textrm{ax,eq}}{\chi}_1$ vs. charge in $H_{\textrm{KDE}}$ for strongly symmetric monodentates.
 \begin{figure}[ht] 
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
@@ -604,9 +653,9 @@ Dimensions $^{\textrm{lc}}_{\textrm{ax,eq}}\chi_1$ vs. charge in $H_{\textrm{KDE
 \frametitle{DFT calculations}
 
 \begin{itemize}
-\item lacvps\_ecp (631G*)
-\item core potential: LANL2DZ
-\item functional: b3lyp
+\item Basis set: LACVPS (6-31G*)
+\item Effective core potential: LANL2DZ
+\item Functional: B3LYP
 \end{itemize}
 \end{frame}
 
@@ -620,27 +669,15 @@ Dimensions $^{\textrm{lc}}_{\textrm{ax,eq}}\chi_1$ vs. charge in $H_{\textrm{KDE
 
 \begin{frame}
 \frametitle{DFT calculations analysis}
-pull thenm apart\\
 \begin{figure}[ht] 
-	\label{ fig7} 
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=.6\linewidth]{img/pcaWithCalcs.pdf} 
-%		\vspace{8ex}
-	\end{minipage}%%
-	\begin{minipage}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=.6\linewidth]{img/fateByCharge.pdf} 
-%		\vspace{8ex}
-	\end{minipage} 
-	\begin{minipage}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=.6\linewidth]{img/fateBytype.pdf} 
+		\includegraphics[width=.8\linewidth]{img/fateBytype.pdf} 
 %		\vspace{4ex}
 	\end{minipage}%% 
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=.6\linewidth]{img/timeByfate.pdf} 
+		\includegraphics[width=.8\linewidth]{img/timeByfate.pdf} 
 %		\vspace{4ex}
 	\end{minipage} 
 \end{figure}
@@ -648,49 +685,58 @@ pull thenm apart\\
 
 \begin{frame}
 \frametitle{DFT calculations analysis}
-krr results vs DFT results in SS energy (linear model)
+krr as small points and large points results from dft all colored by splitting energy
 \end{frame}
 
 \begin{frame}
 \frametitle{DLPNO calculations}
-Linear model DLPNO vs DFT
+\begin{itemize}
+	\item Basis set: 
+	\item Functional: B3LYP
+\end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Split All}
-\includegraphics[width=.7\linewidth]{img/splitAllcomp.pdf} 
-\end{frame}
-
-\begin{frame}
-\frametitle{Pull apart DLPNO results}
-\begin{figure}[ht] 
-	\label{ fig7} 
+\frametitle{Basis set comparison}
+\begin{figure}[ht]  
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=.6\linewidth]{img/corrVsBasis-CBS-high-spin.pdf} 
-%		\vspace{8ex}
+		\includegraphics[width=.8\linewidth]{img/splitAllcomp.pdf} 
 	\end{minipage}%%
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=.6\linewidth]{img/splitCBSsDZ.pdf} 
-%		\vspace{8ex}
+		\includegraphics[width=.8\linewidth]{img/corrVsBasis-CBS-high-spin.pdf} 
 	\end{minipage} 
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{CBS comparison and time analysis}
+\begin{figure}[ht] 
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=.6\linewidth]{img/splitCBSsDFT.pdf} 
-%		\vspace{4ex}
-	\end{minipage}%% 
+		\includegraphics[width=.8\linewidth]{img/splitCBSsDZ.pdf} 
+	\end{minipage}%%
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=.6\linewidth]{img/timeVsBasis.pdf} 
-%		\vspace{4ex}
-	\end{minipage} 
+		\includegraphics[width=.8\linewidth]{img/timeVsBasis.pdf} 
+	\end{minipage}
 \end{figure}
 \end{frame}
 
 \begin{frame}
-\frametitle{thank you slide}
-thanks slide pics
+\frametitle{Thanks for the opportunity to work in this lab!}
+\includegraphics[height=1.3cm]{img/group/grp.png}
+\begin{table}[]
+	\centering
+	\begin{tabular}{llllll}
+		\includegraphics[width=1.5cm]{img/group/heather.png}  & \includegraphics[width=1.5cm]{img/group/aditya.jpg}  & \includegraphics[width=1.5cm]{img/group/akash.png}  & \includegraphics[width=1.5cm]{img/group/chenru.jpg} & \includegraphics[width=1.5cm]{img/group/fang.jpg} & \includegraphics[width=1.5cm]{img/group/helena.jpg} \\
+		
+		\includegraphics[width=1.5cm]{img/group/jp.jpg}  & \includegraphics[width=1.5cm]{img/group/mengyi.jpg}  & \includegraphics[width=1.5cm]{img/group/qing.png}  & \includegraphics[width=1.5cm]{img/group/rimsha.jpg} & \includegraphics[width=1.5cm]{img/group/zhongyue.jpg} &  \\
+	\end{tabular}
+\end{table}
+\includegraphics[height=2cm]{img/group/logos.png} 
 \end{frame}
 
 

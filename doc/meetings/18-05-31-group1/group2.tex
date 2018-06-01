@@ -5,25 +5,65 @@
 \useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
 \useinnertheme{circles}
 \usepackage{booktabs}
+\usepackage{mathtools}
 \usepackage[percent]{overpic}
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\usepackage{relsize}
+\usepackage{chemfig}
+\usepackage{tkz-euclide}
+\usepackage{calc}
+\usepackage{mathpazo}
+\usepackage[graphicx]{realboxes}
+\usepackage{rotating}
+\usepackage[scaled]{helvet}
+\usepackage{epstopdf}
+\usepackage{chemfig}
+\usepackage{pgfgantt}
+\usepackage{bbding}
+\usepackage[justification=centering]{caption}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{amstext}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usetikzlibrary{calc}  
+%\renewcommand{\dateseparator}{.}
+\usepackage{textpos}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{tkz-euclide}
+\usepackage{relsize}
+\usetikzlibrary{shapes,arrows,shapes.symbols,shapes.geometric,shadows,shapes.arrows}
+\usetikzlibrary{calc}   
+\usepackage{mathtools}
+\usepackage[numbers,sort]{natbib}
+\usepackage{chemfig}
+\usepackage[normalem]{ulem}
+\usepackage{gensymb}
+\usepackage{multirow}
+\usepackage{bibentry}
+\usepackage{algorithm,algorithmic}
+\usepackage{relsize}
 
-\definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
-\definecolor{UBCgrey}{rgb}{0.0, 0.87, 0.75} % Hatsune Miku Palette (secondary) NEON 
-%\definecolor{UBCgrey}{rgb}{0.0, 0.6, 0.6} % Hatsune Miku Palette (secondary)  
-%\definecolor{UBCgrey}{rgb}{0.3686, 0.5255, 0.6235} % cool neon feel w UBC blue 
-%\definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
-%\definecolor{UBCgrey}{rgb}{0.3686, 0.999, 0.6235} % UBC Grey (secondary)
 
-\setbeamercolor{palette primary}{bg=UBCblue,fg=white}
-\setbeamercolor{palette secondary}{bg=UBCblue,fg=white}
-\setbeamercolor{palette tertiary}{bg=UBCblue,fg=white}
-\setbeamercolor{palette quaternary}{bg=UBCblue,fg=white}
-\setbeamercolor{structure}{fg=UBCblue} % itemize, enumerate, etc
-\setbeamercolor{section in toc}{fg=UBCblue} % TOC sections
+
+\definecolor{mikublue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
+\definecolor{mikugreen}{rgb}{0.0, 0.87, 0.75} % Hatsune Miku Palette (secondary) NEON 
+%\definecolor{mikugreen}{rgb}{0.0, 0.6, 0.6} % Hatsune Miku Palette (secondary)  
+%\definecolor{mikugreen}{rgb}{0.3686, 0.5255, 0.6235} % cool neon feel w UBC blue 
+%\definecolor{mikublue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
+%\definecolor{mikugreen}{rgb}{0.3686, 0.999, 0.6235} % UBC Grey (secondary)
+
+\setbeamercolor{palette primary}{bg=mikublue,fg=white}
+\setbeamercolor{palette secondary}{bg=mikublue,fg=white}
+\setbeamercolor{palette tertiary}{bg=mikublue,fg=white}
+\setbeamercolor{palette quaternary}{bg=mikublue,fg=white}
+\setbeamercolor{structure}{fg=mikublue} % itemize, enumerate, etc
+\setbeamercolor{section in toc}{fg=mikublue} % TOC sections
 
 % Override palette coloring with secondary
-\setbeamercolor{subsection in head/foot}{bg=UBCgrey,fg=white}
+\setbeamercolor{subsection in head/foot}{bg=mikugreen,fg=white}
 
 \usepackage{tikz}
 \usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
@@ -36,7 +76,7 @@
 		rectangle, 
 		rounded corners, 
 		fill=black!10,
-		draw=UBCblue, very thick,
+		draw=mikublue, very thick,
 		text width=10em, 
 		minimum height=2em, 
 		text centered, 
@@ -57,12 +97,105 @@
 	tuborg/.style={decorate},
 	tubnode/.style={midway, right=2pt},
 }
+
+\tikzset{lddbond/.style={decorate,decoration=ddbond}}
+\tikzset{rddbond/.style={decorate,decoration={ddbond,mirror}}}
+
+\usetikzlibrary{shapes.arrows,shapes.geometric,arrows,shadows,automata,positioning,arrows,calc}
+\setlength\labelsep   {\dimexpr\labelsep + 1em\relax}  
+\setlength\leftmargini{\dimexpr\leftmargini + 0.5em\relax}
+\usepackage{relsize}
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+    \usepackage{pgfplots}
+\pgfplotsset{compat=1.3}
+\tikzset{>=latex}
+\tikzstyle{metal} = [circle, draw, fill=orange!20,minimum size = 1.5cm, 
+    text width=1.25cm, text badly centered, node distance=3cm, inner sep=0pt]
+    \tikzstyle{graphn} = [circle, draw, thick, fill=darkgray!20,minimum size = 0.5cm, 
+    text width=1cm, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{carb} = [circle, draw, fill=gray!20,minimum size = 1cm, 
+    text width=1cm, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{ox} = [circle, draw, fill=red!20,minimum size = 0.5cm, 
+   text width=0.8cm, text badly centered, node distance=3cm, inner sep=0pt]  
+\tikzstyle{decision} = [diamond, draw, fill=green!20, 
+    text width=1.25cm, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, fontscale=0.05,
+    text width=1.5cm, text centered, rounded corners, minimum height=1.5cm]
+\tikzstyle{strategy} = [rectangle, draw, fill=orange!20, fontscale=0.05,
+    text width=2cm, text centered, minimum height=1cm]
+    \tikzstyle{noneblock} = [rectangle,fontscale=0.05,
+    text width=10cm, rounded corners,align=left, minimum height=1cm]
+    \tikzstyle{fs} = [ellipse, draw, fill=orange!20,  fontscale=0.25,
+    text width=2cm, text centered, rounded corners, minimum height=3em]
+    \tikzstyle{longblock} = [rectangle, draw, fill=purple!20,  fontscale=0.25,
+    text width=2cm, text centered, minimum height=3em]
+\tikzstyle{line} = [draw, -latex', very thick, fontscale=0.25,]
+\tikzstyle{async} = [draw, -latex', thick, gray, dashed, text =black, fontscale=0.25,]
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,  fontscale=0.25,
+    minimum height=2em]  
+    \tikzset{fontscale/.style = {font=\relsize{#1}} }
+    \usetkzobj{all}
+
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{patterns}
+\tikzset{snake it/.style={decorate, decoration=snake}}
+
+
+
+\newganttchartelement*{mymilestone}{
+mymilestone/.style={
+shape=isosceles triangle,
+inner sep=0pt,
+draw=cyan,
+top color=white,
+bottom color=cyan!50
+},
+mymilestone incomplete/.style={
+/pgfgantt/mymilestone,
+draw=yellow,
+bottom color=yellow!50
+},
+mymilestone label font=\slshape,
+mymilestone left shift=0pt,
+mymilestone right shift=0pt
+}
+
+\newgantttimeslotformat{stardate}{%
+\def\decomposestardate##1.##2\relax{%
+\def\stardateyear{##1}\def\stardateday{##2}%
+}%
+\decomposestardate#1\relax%
+\pgfcalendardatetojulian{\stardateyear-01-01}{#2}%
+\advance#2 by-1\relax%
+\advance#2 by\stardateday\relax%
+}
+
+
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
 		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 		
-		
+%removes small navigational bullets in header
+\setbeamertemplate{headline}
+{%
+  \begin{beamercolorbox}[ht=3.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{section in head/foot}
+    \usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+    \insertsectionhead
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{middle separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+    leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+    \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
 
-\title[Meeting 2]{GDB-9 \& Small Molecule Universes}
+
+\title[Group Meeting]{GDB-9 \& Small Molecule Universes}
 \date{May 31, 2018}
 \author[Stefan O. Gugler]
 {Stefan O. Gugler}
@@ -79,9 +212,44 @@
 \end{frame}
 
 %% % % % % % % % % % % % % % % % %
-%\section{Spaces and Properties}
+\section{GDB-9 dataset}
 %% % % % % % % % % % % % % % % % %
-%\subsection{First Subsection}
+\begin{frame}
+\frametitle{GDB-9}
+\begin{itemize}
+\item short explanation and outline of some of the rules of GDB-17
+\item introduce GDB-9 as subset of GDB-17
+\item look at their two-heavy-atoms molecules and compare to our project
+\end{itemize}
+	
+\end{frame}
+
+%% % % % % % % % % % % % % % % % %
+\section{Small Ligand Universe}
+%% % % % % % % % % % % % % % % % %
+\subsection{General}
+\begin{frame}
+\frametitle{Motivation}
+\begin{itemize}
+\item GDB-9 analogon for inorganic chemistry
+\item First and second shell complexes are representative
+\item Establish more informatics for inorganic chemistry
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Connecting Structure and Activity}
+How to calculate properties?\footnote{\tiny{Van Santen, R. A., and Neurock, M. \textit{Molecular heterogeneous catalysis: a conceptual and computational approach}. John Wiley \& Sons, 2009.}}
+\input{methods}
+\end{frame}
+
+\begin{frame}
+\frametitle{Procedure}
+\begin{enumerate}
+\item Generate small ligand universe (SLU)
+\item Assemble complexes with different symmetries from truncated SLU
+\item Analysis of symmetry classes 
+\end{enumerate}
+\end{frame}
 
 \begin{frame}
 \frametitle{Reduction of the full space}
@@ -90,15 +258,20 @@
 \begin{tikzpicture}
 [node distance=.5cm,
 start chain=going below,]
-\only<1,3->{\node[punktchain, join] (full) {Full Space};}
-\only<2>{\node[punktchain, join,draw,UBCblue, ultra thick,fill=none] (full) {Full Space};}
+\node[punktchain, join] (full) {Full Space};
 \node[punktchain, join] (scored){Scored Space};
 \node[punktchain, join] (desi){Desired Space};
-\node[punktchain, join] (enum){Enumerated Space};
-\node[punktchain, join] (sampl){Sample \& Build };
-\visible<2>{\node[left of = desi,node distance = 6cm,rectangle,draw,UBCblue, ultra thick]  (i1) {\includegraphics[width=3.5cm]{img/absurd.png}};}
-\visible<2>{\path[draw,ultra thick, ->, UBCgrey] (full.west) -- (i1.east);}
-\visible<3>{\node[left of = desi,node distance = 6cm]  (i2) {\includegraphics[width=4.5cm]{img/sensible.png}};}
+%\node[punktchain, join] (enum){Enumerated Space};
+%\node[punktchain, join] (sampl){Sample \& Build };
+
+\only<2>{\node[left of = desi,node distance = 6cm,rectangle,draw,mikublue, ultra thick]  (i1) {\includegraphics[width=3.5cm]{img/absurd.png}};}
+\only<2>{\path[draw,ultra thick, ->, mikugreen] (full.west) -- (i1.east);}
+
+\only<3>{\node[left of = desi,node distance = 6cm,rectangle,draw,mikublue, ultra thick]  (i2) {\includegraphics[width=4.5cm]{img/evenlesssens.png}};}
+\only<3>{\path[draw,ultra thick, ->, mikugreen] (scored.west) -- (i2.east);}
+
+\only<4>{\node[left of = desi,node distance = 6cm,rectangle,draw,mikublue, ultra thick]  (i2) {\includegraphics[width=4.5cm]{img/sensible.png}};}
+\only<4>{\path[draw,ultra thick, ->, mikugreen] (desi.west) -- (i2.east);}
 \end{tikzpicture}
 
 \end{frame}
@@ -117,17 +290,19 @@ start chain=going below,]
 [node distance=.5cm,
 start chain=going below,]
 \node[punktchain, join] (full) {Full Space: \\ M:125, D:5625, B:5625};
-\node[punktchain, join] (scored){Scored Space: \\ 50, 1500, 201};
+\node[punktchain, join] (scored){Scored Space: \\ 50, 1171, 1635};
 \draw[tuborg, decoration={brace}] let \p1=(full.south), \p2=(scored.north) in
-($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] {\circled{1} charge, sterics, octet, shell, bond order};
+($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] {charge, sterics, octet, shell, bond order};
 \end{tikzpicture}
 ~\\
 ~\\
-These rules \circled{1} are demonstrated in the following for the di-heavy-atoms.
+These rules are demonstrated in the following for the di-heavy-atoms.
 \end{frame}
 
+\subsection{Reduction Rules}
+
 \begin{frame}
-\frametitle{Rules \circled{1} to reduce Full Space $\rightarrow$ Scored Space}
+\frametitle{Rules to reduce Full Space $\rightarrow$ Scored Space}
 Constraints:
 \begin{itemize}
 	\item Charge $c = c_1 + c_2 \leq 1 $
@@ -141,15 +316,24 @@ $\rightarrow$ Reduces 5625 ligands to 1171.
 
 
 \begin{frame}
-\frametitle{Rules \circled{1} to reduce Full Space $\rightarrow$ Scored Space}
+\frametitle{Octet Rule}
+visualization
 \begin{equation}
 u_{\textrm{octet,i}} = 
 \begin{cases}
-10 + 2 \cdot (8-VE_i) 	& \mathrm{if}~ 8-VE_i < 0 \\
-10 - 1 \cdot (8-VE_i) 	& \mathrm{if}~ 8-VE_i \geq 0
+ 10 + 2 \cdot (8-VE_i) 	& \mathrm{if}~ 8-VE_i < 0 \\
+ 10 - 1 \cdot (8-VE_i) 	& \mathrm{if}~ 8-VE_i \geq 0
 \end{cases}
 \end{equation}
 
+\begin{equation}
+u_{\textrm{octet}} = \frac{1}{2} \sum_i^2 u_{\textrm{octet,1}} + u_{\textrm{octet,2}} 
+\end{equation}
+\end{frame}
+
+\begin{frame}
+\frametitle{Charge Constraints}
+visualization
 \begin{equation}
 u_{\textrm{charge}} = 
 \begin{cases}
@@ -159,105 +343,123 @@ u_{\textrm{charge}} =
 0   &	\mathrm{if}~ c_1 + c_2 = -4 
 \end{cases}
 \end{equation}
-
-\begin{equation}
-u_{\textrm{VSEPR}} = 
- 5-|\underbrace{(VE_1 - 2 \cdot LP_1 + c_1 - 2 \cdot h_1)}_{ready~electrons} -  \underbrace{(VE_2 - 2 \cdot LP_2 + c_2 - 2 \cdot h_2)}_{ready~electrons}|
-\end{equation}
 \end{frame}
 
 \begin{frame}
-\frametitle{Rules \circled{1} to reduce Full Space $\rightarrow$ Scored Space}
+\frametitle{VSEPR Constraints}
+visualization
+\begin{equation}
+u_{\textrm{VSEPR}} = 
+ 5- \underset{i}{\textrm{Diff}} \left( VE_i - 2 \cdot LP_i + c_i - 2 \cdot h_i \right)
+\end{equation}
+\end{frame}
 
+
+\begin{frame}
+\frametitle{Sterics}
+visualization
 \begin{equation}
 u_{\textrm{CA}} = 
 \begin{cases}
 1	&	\mathrm{if}~ h_1 = 4 \\
 2	&	\mathrm{if}~ h_1 = 3 \\
-3   &	\mathrm{if}~ \textrm{else} 
+3   &	\textrm{else} 
 \end{cases}
 \end{equation}
-
-\begin{equation}
-u_{\textrm{shell}} = 
-\begin{cases}
-1	&	\mathrm{if}~ \neg (VE_1+VE_2) \% 2 \\
-0	&	\mathrm{if}~ \textrm{else}
-\end{cases}
-\end{equation}
-
-\begin{equation}
-u_{\textrm{total}} = u_{\textrm{shell}} \cdot \left( \frac{1}{2} ( u_{\textrm{octet,1}} + u_{\textrm{octet,2}} ) + u_{\textrm{charge}} + u_{\textrm{VSEPR}} + u_{\textrm{CA}} \right)
-\end{equation}
-
-where $VE_i$ denotes the number of valence electrons, $LP_i$ the number of lone pairs.
 \end{frame}
 
 \begin{frame}
-\frametitle{Distribution and Examples}
+\frametitle{Global utility function}
+\begin{equation}
+u_{\textrm{total}} = u_{\textrm{octet}} + u_{\textrm{charge}} + u_{\textrm{VSEPR}} + u_{\textrm{CA}}
+\end{equation}
+\includegraphics[width=0.65\linewidth]{img/dhal_ss_hist.pdf} 
 \centering
-\begin{overpic}[width=0.8\linewidth]{img/distrDiCNOPS.pdf}
-	\put (13,24) {[C--]=[OH2--]}
-	\put (15,31) {[N--]-[PH4--]}
-	\put (25,37) {[CH3]-[SH2-]}
-	\put (30,45) {[PH++]\#0[SH3-]}
+\end{frame}
+
+\subsection{SLU Analysis}
+
+\begin{frame}
+\frametitle{Analysis: Score, bond order, charge, valence electrons}
+\begin{figure}[ht] 
+	\begin{minipage}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{img/dhal_ss_hist.pdf} 
+		\vspace{2ex}
+	\end{minipage}%%
+	\begin{minipage}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{img/dhal_ss_hist_bo.pdf} 
+		\vspace{2ex}
+	\end{minipage} 
+	\begin{minipage}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{img/dhal_ss_hist_charge.pdf} 
+		\vspace{2ex}
+	\end{minipage}%% 
+	\begin{minipage}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{img/dhal_ss_score_vs_v_2d_hist.pdf} 
+		\vspace{2ex}
+	\end{minipage} 
+\end{figure}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Recover spectrochemical series}
+Spectrochemical series is recovered in the top scores.
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{ll}
+		\toprule
+		Ligand	            & Score		  \\
+		\midrule
+		{[C]}\#{[N-]}       & 14          \\[0.1cm]
+		{[C+]}\#{[O-]}       & 15          \\[0.1cm]
+		{[N-]}\#{[C]}       & 15          \\[0.1cm]
+		{[N+]}={[O]}        & 13          \\[0.1cm]
+		{[O-]}\#{[O-]}       & 14          \\[0.1cm]
+		{[S-]}\#{[S-]}       & 14          \\[0.1cm]
+		\bottomrule
+	\end{tabular}
+	\end{table}
 	
-	\put (56,53) {[NH2]-[OH]}
-	\put (80,57) {[C+]\#[O-]}
-	\put (78,51) {[O-]\#[O-]}
-\end{overpic}
-\includegraphics[width=3.5cm]{img/evenlesssens.png}
+	$s = 15$ also contains species like [CH2-]\#[CH], [OH-]=[NH], [NH2-{}-]\#[P].
 \end{frame}
 
 \begin{frame}
-\frametitle{Reduction of the full small ligand universe: Mo, Di, Bi}
-
+\frametitle{Desired space = top scoring ligands}
+We include all ligands with a score at least as high as the lowest scoring spectrochemical series ligand ($s = 13$)
 \begin{tikzpicture}
 [node distance=.5cm,
 start chain=going below,]
-\node[punktchain, join] (scored){Scored Space: \\ 50, 1500, 201};
-\node[punktchain, join] (desi){Desired Space: \\ 29, 374, 60};
+\node[punktchain, join] (scored){Scored Space: \\ 50, 1171, 1635};
+\node[punktchain, join] (desi){Desired Space: \\ 29, 374, 148};
 
-\draw[tuborg] let \p1=(scored.south), \p2=(desi.north) in
-($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] {\circled{2} score $>$ $s$};
-\end{tikzpicture}
+\draw[tuborg]  let \p1=(scored.south), \p2=(desi.north) in
+($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] (arrow) {score $\geq$ $s$};
 
-
+{\node[right of = arrow, node distance = 4cm]  (s2) {\includegraphics[width=6cm]{img/dhal_ss_hist.pdf}};}
+\end{tikzpicture} 
+This gives us 553 ligands in total.
 \end{frame}
+
+
+%% % % % % % % % % % % % % % % % %
+\section{Assembly of complexes}
+%% % % % % % % % % % % % % % % % %
+\subsection{General}
 
 \begin{frame}
-\frametitle{Reduction of the full small ligand universe: Mo, Di, Bi}
-
-\begin{tikzpicture}
-[node distance=.5cm,
-start chain=going below,]
-\node[punktchain, join] (desi){Desired Space: \\ 29, 374, 60};
-\node[punktchain, join] (enum){Enumerated Space: \\ 20, 80, 50};
-
-\draw[tuborg] let \p1=(desi.south), \p2=(enum.north) in
-($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] {\circled{3} $p$ \% of each isoelectronic};
-\end{tikzpicture}
+example molecule for each symmetry class for visualization that the next slide is more graspable.
 \end{frame}
-
-\begin{frame}
-\frametitle{Reduction of the full small ligand universe: Mo, Di, Bi}
-
-\begin{tikzpicture}
-[node distance=.5cm,
-start chain=going below,]
-\node[punktchain, join] (enum){Enumerated Space: \\ 20, 80, 50};
-\node[punktchain, join] (sampl){Sample \& Build };
-
-\draw[tuborg] let \p1=(enum.south), \p2=(sampl.north) in
-($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] {\circled{4} random whim?};
-\end{tikzpicture}
-\end{frame}
-
 
 
 \begin{frame}
 \frametitle{Subsets of octahedral space}
-The sizes of the selected subsets of octahedral space.
 \begin{table}[]
 	\centering
 %	\caption{The sizes of the selected subsets of octahedral space.}
@@ -292,13 +494,11 @@ The sizes of the selected subsets of octahedral space.
 \begin{figure}[ht] 
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=.8\linewidth]{img/strongsymMonodentates_chargeHist.pdf} 
-		\vspace{4ex}
+		\includegraphics[width=.9\linewidth]{img/strongsymMonodentates_chargeHist.pdf} 
 	\end{minipage}%%
 	\begin{minipage}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=.8\linewidth]{img/strongsymMonodentates_chargeHistCum.pdf} 
-		\vspace{4ex}
+		\includegraphics[width=.9\linewidth]{img/strongsymMonodentates_chargeHistCum.pdf} 
 	\end{minipage} 
 \end{figure}
 \end{frame}
@@ -311,28 +511,39 @@ The homoleptics (ho) span the strong symmetry (ss) and "5+1" (fo) set.
 \includegraphics[width=0.65\linewidth]{img/pca.pdf}
 \caption{asd} 
 \end{figure}
+what are the the PCs, which explaines which?\\
+two slides: first of ho with rac155. new dataset into space, it spans the same idea.\\
+just show only homo first colored by different props then show into SU. rac39 \\
+show decay
 \end{frame}
 
 \begin{frame}
-	\frametitle{Footprint and Entropy calculation}
-	We use five properties to characterize the ligand field and generate a five dimensional distribution:
+	\frametitle{Footprint}
+	We use five properties to characterize the ligand field and generate a five dimensional distribution:\\
+	inspired by MCDL25\\
 	\begin{itemize}
 	\item total charge
 	\item total valence electrons
 	\item electronegativity of the connecting atom
-	\item $^{\textrm{lc}}_{\textrm{ax,eq}}\chi_1 = \sum{EN_{\textrm{CA}} \cdot EN_i}$
-	\item $^{\textrm{lc}}_{\textrm{ax,eq}}\chi^\prime_1 = \sum{EN_{\textrm{CA}} - EN_i}$
-	
+	\item $\prescript{\textrm{lc}}{\textrm{ax,eq}}{\chi}_1 = \sum{EN_{\textrm{CA}} \cdot EN_i}$
+	\item $\prescript{\textrm{lc}}{\textrm{ax,eq}}{\chi}^{\prime}_1 = \sum{EN_{\textrm{CA}} - EN_i}$
 	\end{itemize}
-	We then calculate the entropy, $H_{\textrm{KDE}}$, of the Kernel Density Estimated distrbution.
 \end{frame}
 
 \begin{frame}
 \frametitle{Correlation analysis for strongly symmetric monodentates }
+best case: uniform gray. correl are EN and stuff obv. we dont want very peaky comps.
 \begin{figure}
 \includegraphics[width=0.65\linewidth]{img/strongsymMonodentates_PairwiseCorr.png}
 \end{figure}
 \centering
+\end{frame}
+
+\begin{frame}
+\frametitle{Entropy and KDE}
+We then calculate the entropy, $H_{\textrm{KDE}}$, of the Kernel Density Estimated distrbution. We want it to be uniform not to oversample.
+
+...VIZ of what high and low entropy means...
 \end{frame}
 
 \begin{frame}
@@ -374,26 +585,42 @@ Dimensions $^{\textrm{lc}}_{\textrm{ax,eq}}\chi_1$ vs. charge in $H_{\textrm{KDE
 		\bottomrule
 	\end{tabular}
 	\end{table}
+	
 \end{frame}
 
 \begin{frame}
-\frametitle{Entropy histogram}
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{img/ent.pdf}
-\end{figure}
+\frametitle{Multinomial peaking}
+\includegraphics[width=0.6\linewidth]{img/dice.png}
+\centering
+\begin{itemize}
+\item The more dice, the more the distribution peaks which results in low entropy.  
+\item Sample from low entropy uniformly and get similar molecules.
+\end{itemize}
 \end{frame}
 
-%
-%\begin{frame}
-%\frametitle{Actual calculations}
-%The calculations, colored by convergence fitness.
-%\begin{figure}
-%\includegraphics[width=0.7\linewidth]{img/pcaWithCalcs.pdf}
-%\end{figure}
-%\end{frame}
+
 
 \begin{frame}
-\frametitle{Actual calculations}
+\frametitle{DFT calculations}
+
+\begin{itemize}
+\item lacvps\_ecp (631G*)
+\item core potential: LANL2DZ
+\item functional: b3lyp
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{DFT calculations analysis}
+\includegraphics[width=0.6\linewidth]{img/pca_rf39_SplitIntoSU_convergence.pdf}
+%t-SNE of all DFT calculations whether they converged or not (convergence score $\in$ \{1,2,3,4\}.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{DFT calculations analysis}
+pull thenm apart\\
 \begin{figure}[ht] 
 	\label{ fig7} 
 	\begin{minipage}[b]{0.5\linewidth}
@@ -419,90 +646,55 @@ Dimensions $^{\textrm{lc}}_{\textrm{ax,eq}}\chi_1$ vs. charge in $H_{\textrm{KDE
 \end{figure}
 \end{frame}
 
+\begin{frame}
+\frametitle{DFT calculations analysis}
+krr results vs DFT results in SS energy (linear model)
+\end{frame}
 
 \begin{frame}
-\begin{itemize}
-\item 0: [NH3], [N]\#[N], [C+]\#[O-], [C+]\#[NH-], [N]\#[CH]
-\item 1: [CH+]=[CH3-], [NH]=[O], [CH+]=[OH-], [CH2+]-[OH2-]
-\item 8: [OH2-]-[PH+], [P+]=[OH-], [PH+]-[OH2-], [NH2-]=[CH+]
-\end{itemize}
+\frametitle{DLPNO calculations}
+Linear model DLPNO vs DFT
+\end{frame}
+
+\begin{frame}
+\frametitle{Split All}
+\includegraphics[width=.7\linewidth]{img/splitAllcomp.pdf} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Pull apart DLPNO results}
+\begin{figure}[ht] 
+	\label{ fig7} 
+	\begin{minipage}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=.6\linewidth]{img/corrVsBasis-CBS-high-spin.pdf} 
+%		\vspace{8ex}
+	\end{minipage}%%
+	\begin{minipage}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=.6\linewidth]{img/splitCBSsDZ.pdf} 
+%		\vspace{8ex}
+	\end{minipage} 
+	\begin{minipage}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=.6\linewidth]{img/splitCBSsDFT.pdf} 
+%		\vspace{4ex}
+	\end{minipage}%% 
+	\begin{minipage}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=.6\linewidth]{img/timeVsBasis.pdf} 
+%		\vspace{4ex}
+	\end{minipage} 
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{thank you slide}
+thanks slide pics
 \end{frame}
 
 
-% % % % % % % % % % % % % % % %
-%backup of the setsizes and entropies for individual mono/bi split sets
-% % % % % % % % % % % % % % % %
-%\begin{frame}
-%\frametitle{Monodentate Sets}
-%The sizes of the subsets of the monodentate octahedral space.
-%\begin{table}[]
-%	\centering
-%%	\caption{The sizes of the subsets of the monodentate octahedral space.}
-%	\label{tab:space-sizes-mono}
-%	\begin{tabular}{llcr}
-%		\toprule
-%		Set 					& description		       & formula					        	   & size \\
-%		\midrule
-%		Homoleptics             & eq = ax                  & $\frac{405!}{404! \cdot  1!}$           & 405        \\[0.1cm]
-%		"5+1" symmetric         & eq = ax1 $\neq$ ax2      & $\frac{405!}{403! \cdot  1! \cdot  1!}$ & 163,620    \\[0.1cm]
-%		Strongly symmetric      & eq $\neq$ ax             & $\frac{405!}{403! \cdot  1! \cdot  1!}$ & 163,620    \\[0.1cm]
-%		"4+2" symmetric         & eq1 $\neq$ eq2 = ax      & $\frac{405!}{403! \cdot  1! \cdot 1!}$  & 163,620    \\[0.1cm]
-%		Equatorially asymmetric & eq1 $\neq$ eq2 $\neq$ ax & $\frac{405!}{402! \cdot  3!}$           & 10,989,810 \\[0.1cm]
-%		Weakly symmetric        & eq $\neq$ ax1 $\neq$ ax2 & $\frac{405!}{402! \cdot  2! \cdot  1!}$ & 32,969,430 \\[0.1cm]
-%		Complete Heteroleptics  & $L_i \neq L_j$           & $\frac{405!}{399! \cdot  6!}$           & $\approx 5.9 \cdot 10^{12}$ \\[0.1cm]
-%		Octahedral Space        & all                      & $405^6                      $           & $\approx 4.4 \cdot 10^{15}$ \\
-%		\bottomrule
-%	\end{tabular}
-%	\end{table}
-%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Bidentate Sets}
-%	The sizes of the subsets of the bidentate octahedral space.
-%	
-%	\begin{table}[]
-%	\centering
-%%	\caption{The sizes of the subsets of the bidentate octahedral space.}
-%	\label{tab:space-sizes-bi}
-%	\begin{tabular}{llcr}
-%		\toprule
-%		Set 					& description		       & formula					        	 & size \\
-%		\midrule
-%		Homoleptics             & eq = ax                  & $\frac{148!}{147! \cdot  1!}$           & 148        \\[0.1cm]
-%		Strongly symmetric AC   & eq $\neq$ ax             & $\frac{148!}{146! \cdot  1! \cdot  1!}$ & 21,756    \\[0.1cm]
-%		Strongly symmetric ADC  & eq $\neq$ ax             & $405 \cdot  148$                        & 59,940    \\[0.1cm]
-%		"4+2" symmetric         & eq1 $\neq$ eq2 = ax      & $\frac{148!}{146! \cdot  1! \cdot 1!}$  & 21,756    \\[0.1cm]
-%		Equatorially asymmetric AC & eq1 $\neq$ eq2 $\neq$ ax & $\frac{148!}{145! \cdot  3!}$        & 529,396 \\[0.1cm]
-%		Equatorially asymmetric ADC& eq1 $\neq$ eq2 $\neq$ ax & $\frac{405 \cdot 148!}{146! \cdot  2!}$& 4,405,590 \\[0.1cm]
-%		Weakly symmetric        & eq $\neq$ ax1 $\neq$ ax2 & $\frac{405! \cdot 148}{403! \cdot  2!}$ & 12,107,880 \\[0.1cm]
-%		\bottomrule
-%	\end{tabular}
-%	\end{table}
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{Monodentate Footprints}
-%	\begin{table}[]
-%	\centering
-%	\caption{Entropic footprint}
-%	\label{tab:ent-footprint}
-%	\begin{tabular}{lcr}
-%		\toprule
-%		Set 					    &  $H_{\textrm{KDE}}^{\textrm{monodent}}$   & $H_{\textrm{KDE}}^{\textrm{bident}}]$ \\
-%		\midrule
-%		Homoleptics                 &  19.7  & 15.63   \\[0.1cm]
-%		"5+1" symmetric             &  13.7  & -       \\[0.1cm]
-%		Strongly symmetric AC       &  -     & 9.47    \\[0.1cm]
-%		Strongly symmetric ADC      &  12.70 & 5.53    \\[0.1cm]
-%		"4+2" symmetric             &  12.70 & 9.47    \\[0.1cm] 
-%		Weakly symmetric            &  8.1   & 7.70    \\[0.1cm]
-%		Equatorially asymmetric AC  &  -     & 10.04   \\[0.1cm]
-%		Equatorially asymmetric ADC &        &         \\[0.1cm]
-%
-%		\bottomrule
-%	\end{tabular}
-%	\end{table}
-%\end{frame}
+
 
 
 \end{document}

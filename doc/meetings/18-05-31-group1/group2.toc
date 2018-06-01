@@ -1,1 +1,8 @@
 \beamer@endinputifotherversion {3.24pt}
+\beamer@sectionintoc {1}{GDB-9 dataset}{3}{0}{1}
+\beamer@sectionintoc {2}{Small Ligand Universe}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{General}{4}{0}{2}
+\beamer@subsectionintoc {2}{2}{Reduction Rules}{22}{0}{2}
+\beamer@subsectionintoc {2}{3}{SLU Analysis}{28}{0}{2}
+\beamer@sectionintoc {3}{Assembly of complexes}{31}{0}{3}
+\beamer@subsectionintoc {3}{1}{General}{31}{0}{3}

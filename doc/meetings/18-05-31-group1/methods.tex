@@ -1,0 +1,31 @@
+\begin{center}
+\noindent\resizebox{!}{6.5cm}{
+	\begin{tikzpicture}
+		\node [] (origin) at (-1,0){};
+		\node [] (xe) at (10,-1){};
+		\node [] (ye) at (-1,8){};
+		\visible<1>{\node[circle, very thick,minimum width = 3cm ] (met) at (2,5){\setatomsep{40pt}\chemfig{L>:[:-30]{{\color{blue}M}}([:-150]<L)([:90]-{{L}})(<:[:30]L)(<[:-30]L)([:-90]-{{L}})}};}
+		\visible<1>{\node[ ] (prop) at (8,5) {$\Delta \textrm{E}$};}
+		\visible<1>{\draw[very thick, ->] (met) edge node[above]{quantum mechanics} (prop);}
+		\visible<2->{\path[very thick, draw,->] (2,-1) -- (xe);}
+		\visible<2->{\path[very thick, draw,->] (-1,1) -- (ye);}
+		\visible<2->{\node[rotate=90] at (-1.5,2.5) {\textbf{cost (not to scale)}};}
+		\visible<2->{\node[] at (5,-1.5) {\textbf{accuracy}};}
+		\visible<3->{\node [circle,fill,mikugreen,label={[label distance=0.25cm]-90:{semiempirical}}] (sqm) at (0,0){};}
+		\visible<4->{\node [circle,fill,mikugreen,label={[label distance=0.25cm]-90:{DFT}}] (dft) at (3,1.5){};}
+		\visible<5->{\node [circle,fill,mikugreen,label={[label distance=0.25cm]-90:{CCSD}}] (ccsd) at (6,3){};}
+		\visible<6->{\node [circle,fill,mikugreen,label={[label distance=0.25cm]-90:{CCSD(T)}}] (ccsdt) at (8,4.5){};}
+		\visible<7->{\node [circle,fill,mikugreen,label={[label distance=0.25cm]-90:{Full CI}}] (ci) at (10,6){};}
+		\visible<8-11>{\node [circle,fill,mikugreen,label={[label distance=0.25cm]90:{$>10^{3}$}}] (sqml) at (0,0){};}
+		\visible<9-11>{\node [circle,fill,mikugreen,label={[label distance=1cm]90:{$\sim 10^{2-3}$}}] (dftl) at (3,1.5){};}
+		\visible<10-11>{\node [circle,fill,mikugreen,label={[label distance=1cm]90:{$\sim 10^{1}$}}] (CCSDl) at (6,3){};}
+		\visible<11-11>{\node [circle,,label={[label distance=1.25cm]-90:{$\sim 10^{0}$}}] (ciL) at (10,6){};}
+		\visible<9-11>{\node [circle,fill,mikugreen,label={[label distance=0.25cm]90:{$\mathcal{O}(N^3)$}}] (dftl) at (3,1.5){};}
+		\visible<4-11>{\node [circle,fill,mikugreen,label={[label distance=1.75cm]90:{density functional theory}}] (dftl) at (3,1.5){};}
+		\visible<5-11>{\node [label={[label distance=2.25cm]90:{coupled-cluster methods}}] (CCSDl) at (7,3){};}
+		\visible<10-11>{\node [circle,fill,mikugreen,label={[label distance=0.25cm]90:{$\mathcal{O}(N^7)$}}] (CCSDl) at (6,3){};}
+		\visible<11>{\node [circle,label={[label distance=0.75cm]-90:{$\mathcal{O}(N!)$}}] (ciL) at (10,6){};}
+
+	\end{tikzpicture}
+}
+\end{center}

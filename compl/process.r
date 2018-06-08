@@ -50,16 +50,19 @@ for (props in c("energy","time","flag_oct","num_coord_metal", 'status')){
   }
 }
 
-# generate the splitting energies and a convergence check
-results$betterConvergence <- results$ox_2_HS_flag_oct + results$ox_2_LS_flag_oct + results$ox_3_LS_flag_oct + results$ox_3_HS_flag_oct
-results$ox_2_split <- results$ox_2_HS_energy - results$ox_2_LS_energy
-results$ox_3_split <- results$ox_3_HS_energy - results$ox_3_LS_energy
 
 
 results[is.na(results$ox_2_HS_flag_oct), ]$ox_2_HS_flag_oct <- 0
 results[is.na(results$ox_2_LS_flag_oct), ]$ox_2_LS_flag_oct <- 0
 results[is.na(results$ox_3_HS_flag_oct), ]$ox_3_HS_flag_oct <- 0
 results[is.na(results$ox_3_LS_flag_oct), ]$ox_3_LS_flag_oct <- 0 
+
+
+# generate the splitting energies and a convergence check
+results$betterConvergence <- results$ox_2_HS_flag_oct + results$ox_2_LS_flag_oct + results$ox_3_LS_flag_oct + results$ox_3_HS_flag_oct
+results$ox_2_split <- results$ox_2_HS_energy - results$ox_2_LS_energy
+results$ox_3_split <- results$ox_3_HS_energy - results$ox_3_LS_energy
+
 
 # set up another df for ox_2 complexes that have all the needed energies non-nan 
 ox_2_split_results <- results[!(is.na(results$ox_2_split)) & results$ox_2_HS_flag_oct == 1 &

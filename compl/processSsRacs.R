@@ -2,7 +2,9 @@
 require(plyr)
 require(dplyr)
 require(ggplot2)
+
 HF_to_kcalmol = 627.5095
+
 loadSet <-function(name){
   nameStr = deparse(substitute(name))
   if (nameStr != 'ho'){
@@ -295,9 +297,9 @@ g <- g + ggtitle("PCA of all sets with homoleptic splitting energy results super
 g <- g + scale_colour_gradientn(colours = c('black', 'blue', 'red', '#D306DB', 
                                             '#D721BC','#DC3C9E', '#E15880','#E57361', '#EA8E43' ,'#EFAA25','yellow' ))
   
-# cairo_pdf(file="pca_rf39_SplitIntoSU_convergence.pdf",width = 6, height = 5)
+cairo_pdf(file="pca_rf39_SplitIntoSU_splitene_metal_cai.pdf",width = 6, height = 5)
 print(g)
-# dev.off()
+dev.off()
 
 # PCA of SS into SU colored by metal/cai
 g <- ggplot(data=projSsIntoSu2[seq.int(1L,length(projSsIntoSu2$PC1),10L),],

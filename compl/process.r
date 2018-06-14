@@ -34,11 +34,22 @@ results1 <- results1[,(colnames(results1) %in% colnames(results2))]
 results3 <- results3[,(colnames(results3) %in% colnames(results4))]
 resultsNan1 <- resultsNan1[,(colnames(resultsNan1) %in% colnames(resultsNan2))]
 
-racs <- rbind(rbind(rbind(rbind(rbind(racs1, racsNan1), racs2), racsNan2), racs3), racs4)
-results <- rbind(rbind(rbind(rbind(rbind(results1, resultsNan1), results2), resultsNan2), results3), results4)
+# concat lists according to denticity
+racs_m <- rbind(rbind(rbind(racs1, racsNan1), racs2), racsNan2)
+racs_b <- rbind(racs3, racs4) 
+results_m <- rbind(rbind(rbind(results1, resultsNan1), results2), resultsNan2)
+results_b <- rbind(results3, results4)
+
+# transform eqlig from format 'smiXXX' to a numeric and add 405 to the bidentates.
+results_m$eqn <- as.numeric(as.character(gsub('smi', '', results_m$eqlig)))
+results_b$eqn <- as.numeric(as.character(gsub('smi', '', results_b$eqlig))) + 405
+
+# combine all results
+racs <- rbind(racs_m, racs_b)
+results <- rbind(results_m, results_b)
 
 # generate all columns that are interesting to us
-colstokeep <- c("name","gene","alpha","metal","ox2RN","ox3RN","ox_2_split","ox_3_split")
+colstokeep <- c("name","gene","alpha","metal","ox2RN","ox3RN","ox_2_split","ox_3_split", 'eqn')
 
 # we iterate over ox_{2,3} and {LS,HS} because the string of the descriptor name is always constructed this way
 for (props in c("energy","time","flag_oct","num_coord_metal", 'status')){

@@ -1,0 +1,197 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2018.3.23)  14 JUN 2018 18:46
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2011/06/27>
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 11.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 11.
+
+
+LaTeX Warning: Reference `blair1932,polishchuk2013,bohacek1998,wester2008,trigg
+le2009' on page 1 undefined on input line 11.
+
+
+LaTeX Warning: Reference `tan2005,hajduk2011,galloway2010' on page 1 undefined 
+on input line 13.
+
+
+LaTeX Warning: Reference `virshup2013' on page 1 undefined on input line 13.
+
+
+LaTeX Warning: Reference `ruddigkeit2012' on page 1 undefined on input line 13.
+
+
+
+LaTeX Warning: Reference `luethi2010,nguyen2008' on page 1 undefined on input l
+ine 13.
+
+
+LaTeX Warning: Reference `virshup2013' on page 1 undefined on input line 13.
+
+
+LaTeX Warning: Reference `agrafiotis1997' on page 1 undefined on input line 13.
+
+
+
+Overfull \hbox (7.91719pt too wide) in paragraph at lines 13--14
+\OT1/cmr/m/n/10 through syn-the-sis and other biases.[] Enu-mer-a-tion projects
+ of the-o-rized molecules
+ []
+
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+
+Overfull \hbox (116.52766pt too wide) in paragraph at lines 17--35
+\OT1/cmr/m/n/10 https://www.nature.com/articles/nmat3568 2 HT (Norskov): https:
+//www.nature.com/articles/nmat1752
+ []
+
+
+Overfull \hbox (3.10965pt too wide) in paragraph at lines 17--35
+\OT1/cmr/m/n/10 5 ML x DFT (Ceder): https://pubs.acs.org/doi/10.1021/cm100795d 
+6 Databases
+ []
+
+
+Overfull \hbox (27.1952pt too wide) in paragraph at lines 17--35
+\OT1/cmr/m/n/10 (Ceder): https://www.sciencedirect.com/science/article/pii/S092
+7025611001133?via7
+ []
+
+
+Overfull \hbox (21.08412pt too wide) in paragraph at lines 17--35
+\OT1/cmr/m/n/10 rath): https://www.sciencedirect.com/science/article/pii/S13596
+44607000529?via10
+ []
+
+
+Overfull \hbox (182.94572pt too wide) in paragraph at lines 17--35
+\OT1/cmr/m/n/10 clean ene (guzik): https://pubs.acs.org/doi/10.1021/jz200866s 1
+1 diodes: https://aip.scitation.org/doi/10.1063/1.4914294
+ []
+
+
+Overfull \hbox (29.69539pt too wide) in paragraph at lines 17--35
+\OT1/cmr/m/n/10 found: https://www.annualreviews.org/doi/10.1146/annurev.matsci
+.38.060407.130217
+ []
+
+
+Overfull \hbox (2.80634pt too wide) in paragraph at lines 17--35
+\OT1/cmr/m/n/10 12 >>what i want (be-ratan) https://pubs.acs.org/doi/10.1021/ja
+401184g 13 prose
+ []
+
+
+LaTeX Warning: Reference `ioannidis2016' on page 1 undefined on input line 36.
+
+
+LaTeX Warning: Reference `letard2004,halcrow2011,ashley2017' on page 1 undefine
+d on input line 38.
+
+
+LaTeX Warning: Reference `bignozzi2013' on page 1 undefined on input line 38.
+
+
+LaTeX Warning: Reference `harvey2003' on page 1 undefined on input line 38.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+
+Overfull \hbox (77.33434pt too wide) in paragraph at lines 42--49
+\OT1/cmr/m/n/10 as low di-men-sional as pos-si-ble, 42 https://journals.aps.org
+/prb/pdf/10.1103/PhysRevB.87.184115
+ []
+
+
+Overfull \hbox (203.16808pt too wide) in paragraph at lines 42--49
+\OT1/cmr/m/n/10 43 https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.11
+4.105503 44 https://aip.scitation.org/doi/10.1063/1.4964627 
+ []
+
+Missing character: There is no â in font cmr10!
+Missing character: There is no ˆ in font cmr10!
+Missing character: There is no ’ in font cmr10!
+
+Overfull \hbox (20.33423pt too wide) in paragraph at lines 50--63
+\OT1/cmr/m/n/10 chem-istry65 51 https://journals.aps.org/prb/abstract/10.1103/P
+hysRevB.89.205118
+ []
+
+
+Overfull \hbox (23.6664pt too wide) in paragraph at lines 50--63
+\OT1/cmr/m/n/10 52 ANN JP: http://pubs.rsc.org/en/Content/ArticleLanding/2017/S
+C/C7SC01247K
+ []
+
+
+Overfull \hbox (27.44531pt too wide) in paragraph at lines 71--74
+[]\OT1/cmr/m/n/10 own a elap-site: https://journals.aps.org/prl/pdf/10.1103/Phy
+sRevLett.117.135502
+ []
+
+[2] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 217 strings out of 493304
+ 2435 string characters out of 6139871
+ 55880 words of memory out of 5000000
+ 3760 multiletter control sequences out of 15000+600000
+ 4294 words of font info for 16 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 23i,4n,17p,1220b,107s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (2 pages, 54354 bytes).
+PDF statistics:
+ 27 PDF objects out of 1000 (max. 8388607)
+ 18 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

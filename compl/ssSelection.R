@@ -7,17 +7,52 @@ loadSet <-function(name){
   name$set <- nameStr
   return(name)
 }
+# load footprint for ligands
+lig_footprint <- read.csv('../enum/sp.out', header = FALSE)
 
+# loading ss sets
 ssadc_racs <- loadSet(ssadc)
 ssadc_b_racs <- loadSet(ssadc_b)
 ssac_b_racs <- loadSet(ssac_b)
 ss_racs <- rbind(rbind(ssadc_racs, ssadc_b_racs), ssac_b_racs)
 
+# replace the string format with actual numbers of the ligands and plot them
 ss_racs$eq <- gsub('_ax_.*', '', gsub('.._eq_', '', ss_racs$runs))
-split_results$eq <- gsub('_ax1_.*', '', gsub('.._eq_smi', '', split_results$name))
-
-validChildren <- ss_racs[ss_racs$eq %in% split_results$eq,]
-
+ss_racs$ax <- gsub('.*_ax_', '', ss_racs$runs)
 ss_racs$eqn <- as.numeric(as.character(ss_racs$eq))
-h <- ggplot(data=ss_racs,aes(x=eqn)) + geom_histogram(binwidth=0.5,center=0.5)
+ss_racs$axn <- as.numeric(as.character(ss_racs$ax))
+
+for (i in 1:dim(ss_racs)[1]){
+  if (ss_racs[i, 'ax'] > 404){
+    if (ss_racs[i, 'eqn'] > 404){
+      ss_racs[i, 'charge'] <- lig_footprint[ss_racs[i, 'eqn']+1, 1] * 2 + lig_footprint[ss_racs[i, 'axn']+1, 1] * 1
+    } else {
+      ss_racs[i, 'charge'] <- lig_footprint[ss_racs[i, 'eqn']+1, 1] * 4 + lig_footprint[ss_racs[i, 'axn']+1, 1] * 1
+    }
+  } else {
+    if (ss_racs[i, 'eqn'] > 404){
+      ss_racs[i, 'charge'] <- lig_footprint[ss_racs[i, 'eqn']+1, 1] * 2 + lig_footprint[ss_racs[i, 'axn']+1, 1] * 2
+    } else {
+      ss_racs[i, 'charge'] <- lig_footprint[ss_racs[i, 'eqn']+1, 1] * 4 + lig_footprint[ss_racs[i, 'axn']+1, 1] * 2
+    }
+  }
+}
+
+save(ss_racs,file="ss_racs_w_charge.Rdata")
+
+# filter out everything not in [-4,0]
+ss_racs_validCharges <- ss_racs[ss_racs$charge > -5 & ss_racs$charge < 1, ]
+
+
+h1 <- ggplot(data=ss_racs,aes(x=eqn)) +
+  geom_histogram(binwidth=0.5,center=0.5) +
+  theme(axis.text.x=element_blank())
+  
 print(h)
+
+# select only ss complexes that have working ligands in the DFT
+validChildren <- ss_racs_validCharges[ss_racs_validCharges$eq %in% split_results$eq,]
+h2 <- ggplot(data=validChildren, aes(x=eqn)) + geom_histogram(binwidth=0.5,center=0.5)
+
+grid.arrange(h1, h2)
+

@@ -56,3 +56,13 @@ h2 <- ggplot(data=validChildren, aes(x=eqn)) + geom_histogram(binwidth=0.5,cente
 
 grid.arrange(h1, h2)
 
+# now after clara is done and we have pa1000 with all the medoids:
+validChildren_medoids <- validChildren[validChildren$runs %in% rownames(pa1000$medoids),]
+
+run_metal_ax_eq <- cbind(validChildren_medoids$runs, sqrt(validChildren_medoids$mc.Z.0.all))
+run_metal_ax_eq <- cbind(run_metal_ax_eq, validChildren_medoids$axn)
+run_metal_ax_eq <- cbind(run_metal_ax_eq, validChildren_medoids$eqn)
+colnames(run_metal_ax_eq) <- c('run', 'metal', 'ax', 'eq')
+write.csv(run_metal_ax_eq,file="run_metal_ax_eq.csv")
+
+

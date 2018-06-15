@@ -19,8 +19,8 @@ nc = 1000
 start_time <- Sys.time()
 pa <-clara(clara_predictors,nc,rngR = TRUE) # rngR uses the R random number generator
 end_time <- Sys.time()
-pa1000 <- pa
-save(pa1000,file="pa1000.Rdata") 
+# pa1000 <- pa
+# save(pa1000,file="pa1000.Rdata")
 
 cluster_info <- data.frame(pa$clusinfo)
 meds  <- as.data.frame(t(apply(pa$medoids, 1, function(r)r*clara_predictors_scale+ clara_predictors_center)))
@@ -123,9 +123,6 @@ print(prop_plot)
 cairo_pdf('clustv2.pdf',width=2*3.5,height = 4.00)
 print(prop_plot)
 dev.off()
-
-
-
 
 
 

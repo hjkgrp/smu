@@ -3,6 +3,8 @@ require(plyr)
 require(dplyr)
 require(ggplot2)
 
+HF_to_kcalmol = 627.5095
+
 loadSet <-function(name){
   nameStr = deparse(substitute(name))
   if (nameStr != 'ho'){
@@ -86,6 +88,8 @@ superset_rf153racs <- superset[,rf153vars]
 
 split_results_39racs <- split_results[,rf39vars]
 split_results_153racs <- split_results[,rf153vars]
+props_conv <- results[,!(colnames(results) %in% (rf153vars))]
+props_conv$goodConvergence <- results$betterConvergence
 props <- (split_results[,!(colnames(split_results) %in% (rf153vars))])
 props$goodConvergence <- as.factor(props$ox_2_HS_flag_oct + props$ox_2_LS_flag_oct + props$ox_3_LS_flag_oct + props$ox_3_HS_flag_oct)
 
@@ -143,7 +147,7 @@ ss_rf39racs_data <- standardizeSet(ss_rf39racs, superset_rf39racs_center, supers
 fo_rf39racs_data <- standardizeSet(fo_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)
 ft_rf39racs_data <- standardizeSet(ft_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)
 ws_rf39racs_data <- standardizeSet(ws_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)
-split_results_rf39racs_data <- standardizeSet(split_results_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)
+split_results_rf39racs_data <- standardizeSet(split_results_39racs, superset_rf39racs_center, superset_rf39racs_scale)
 
 ############################
 # PCA with function prcomp #
@@ -247,9 +251,9 @@ projWsIntoSu2$cai <- (4*sqrt(ws_rf39racs$lc.Z.0.eq) + 2*sqrt(ws_rf39racs$lc.Z.0.
 projWsIntoSu2$set <- ws_racs$set
 
 projSplitIntoSu2 <- as.data.frame(predict(pca2, split_results_rf39racs_data))
-projSplitIntoSu2$set <- 'calcHomo'              
-projSplitIntoSu2$metal <- revalue(as.factor(sqrt(split_results_rf39racs_data$mc.Z.0.all)), c('24'='Cr','25'='Mn','26'='Fe','27'='Co'))
-projSplitIntoSu2$cai <- (4*sqrt(split_results_rf39racs_data$lc.Z.0.eq) + 2*sqrt(split_results_rf39racs_data$lc.Z.0.ax))/6
+projSplitIntoSu2$set <- 'splitHomo'              
+projSplitIntoSu2$metal <- split_results$metal
+projSplitIntoSu2$cai <- (4*sqrt(split_results$lc.Z.0.eq) + 2*sqrt(split_results$lc.Z.0.ax))/6
 #<<<<<<<<<<<<<< 39
 
 # totalScores2 <- rbind(projSsIntoSu2, scores2)
@@ -276,19 +280,50 @@ print(g)
 g <- ggplot(data=totalScores, aes(x=PC1, y=PC2)) + stat_bin2d(binwidth = c(4,1)) + theme_light() + geom_point(data=scores,aes(color=metal))
 print(g)
 
-# eeeeeeeeeeeeeeeebi-----------------------
-g <- ggplot(data=projSplitIntoSu2[seq.int(1L,length(projSplitIntoSu2$PC1),1L),],
-            aes(x=PC1, y=PC2, color = props$goodConvergence)) + # color=cai
-            geom_point(size = 5)
-g <- g + geom_point(data=scores2[seq.int(1L,length(scores2$PC1),10L),], size = 0.2, aes(color='SU'))
+# PCA of calc'd splitting energies into SU colored by cai/metal/ene
+plot_df <- projSplitIntoSu2
+plot_df$split<-split_results$split
+plot_df$split<-plot_df$split*HF_to_kcalmol 
+plot_df$ox<-split_results$ox
+#plot_df_2 <- scores2[seq.int(1L,length(scores2$PC1),10L),]
+#plot_df_2$split <- df$krrsplit
+g <- ggplot(data=plot_df[plot_df$ox==2 & plot_df$split < 150, ],
+            aes(x=PC1, y=PC2, fill = split,shape=metal)) +scale_fill_gradient2(high='firebrick',low='dodgerblue',mid='white',midpoint =0)+
+        geom_point(data=scores2[seq.int(1L,length(scores2$PC1),10L),], shape=15,size = 1.15,alpha=0.5,fill='purple',aes(color=cai)) +
+        geom_point(size = 5,color='black') + theme_light()
+g <- g + ggtitle("PCA of all sets with homoleptic splitting energy results superimposed") + 
+  theme(title = element_text(hjust = 0.5)) + scale_shape_manual(values= c("Cr"=21,"Co"=22,"Fe"=23,"Mn"=24))+
+  labs(fill='spliting energy')  + labs(color='connecting atom') + theme(panel.background = element_rect(fill='white',color='black'))
+g <- g + scale_colour_gradientn(colours = c('black', 'blue', 'red', '#D306DB', 
+                                            '#D721BC','#DC3C9E', '#E15880','#E57361', '#EA8E43' ,'#EFAA25','yellow' ))
+  
+cairo_pdf(file="pca_rf39_SplitIntoSU_splitene_metal_cai.pdf",width = 6, height = 5)
+print(g)
+dev.off()
+
+# PCA of SS into SU colored by metal/cai
+g <- ggplot(data=projSsIntoSu2[seq.int(1L,length(projSsIntoSu2$PC1),10L),],
+            aes(x=PC1, y=PC2, color = cai)) +
+  geom_point(size = 2)
+g <- g + geom_point(data=scores2[seq.int(1L,length(scores2$PC1),10L),], size = 0.2)
 g <- g + guides(color = guide_legend(override.aes = list(size = 5)))
-g <- g + ggtitle("PCA of all sets with homoleptic results superimposed") + 
+g <- g + ggtitle("PCA of all sets with SS projected into it") + 
   labs(color='Convergence')  
-
-
-# cairo_pdf(file="pca_rf39_SplitIntoSU_convergence.pdf",width = 6, height = 5)
+# cairo_pdf(file="pca_rf39_SsIntoSU_cai.pdf",width = 6, height = 5)
 print(g)
 # dev.off()
+
+# PCA of different sets into SU with facet = set
+g <- ggplot(data=projHomoIntoSu2[seq.int(1L,length(projHomoIntoSu2$PC1),1L),],
+            aes(x=PC1, y=PC2, color=cai)) +
+  geom_point(size = 2, color='red')
+g <- g + geom_point(data=scores2[seq.int(1L,length(scores2$PC1),10L),], size = 0.2)
+g <- g + guides(color = guide_legend(override.aes = list(size = 5)))
+# g <- g + ggtitle("PCA of all sets with SS projected into it") + 
+  labs(color='Convergence')  #+ facet_wrap('set') 
+cairo_pdf(file="pca_rf39_HomoIntoSU_cai_span.pdf",width = 6, height = 5)
+print(g)
+dev.off()
 
 # -- t-SNE
 

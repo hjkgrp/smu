@@ -34,11 +34,22 @@ results1 <- results1[,(colnames(results1) %in% colnames(results2))]
 results3 <- results3[,(colnames(results3) %in% colnames(results4))]
 resultsNan1 <- resultsNan1[,(colnames(resultsNan1) %in% colnames(resultsNan2))]
 
-racs <- rbind(rbind(rbind(rbind(rbind(racs1, racsNan1), racs2), racsNan2), racs3), racs4)
-results <- rbind(rbind(rbind(rbind(rbind(results1, resultsNan1), results2), resultsNan2), results3), results4)
+# concat lists according to denticity
+racs_m <- rbind(rbind(rbind(racs1, racsNan1), racs2), racsNan2)
+racs_b <- rbind(racs3, racs4) 
+results_m <- rbind(rbind(rbind(results1, resultsNan1), results2), resultsNan2)
+results_b <- rbind(results3, results4)
+
+# transform eqlig from format 'smiXXX' to a numeric and add 405 to the bidentates.
+results_m$eqn <- as.numeric(as.character(gsub('smi', '', results_m$eqlig)))
+results_b$eqn <- as.numeric(as.character(gsub('smi', '', results_b$eqlig))) + 405
+
+# combine all results
+racs <- rbind(racs_m, racs_b)
+results <- rbind(results_m, results_b)
 
 # generate all columns that are interesting to us
-colstokeep <- c("name","gene","alpha","metal","ox2RN","ox3RN","ox_2_split","ox_3_split")
+colstokeep <- c("name","gene","alpha","metal","ox2RN","ox3RN","ox_2_split","ox_3_split", 'eqn')
 
 # we iterate over ox_{2,3} and {LS,HS} because the string of the descriptor name is always constructed this way
 for (props in c("energy","time","flag_oct","num_coord_metal", 'status')){
@@ -50,13 +61,23 @@ for (props in c("energy","time","flag_oct","num_coord_metal", 'status')){
   }
 }
 
+
+
+results[is.na(results$ox_2_HS_flag_oct), ]$ox_2_HS_flag_oct <- 0
+results[is.na(results$ox_2_LS_flag_oct), ]$ox_2_LS_flag_oct <- 0
+results[is.na(results$ox_3_HS_flag_oct), ]$ox_3_HS_flag_oct <- 0
+results[is.na(results$ox_3_LS_flag_oct), ]$ox_3_LS_flag_oct <- 0 
+
+
 # generate the splitting energies and a convergence check
 results$betterConvergence <- results$ox_2_HS_flag_oct + results$ox_2_LS_flag_oct + results$ox_3_LS_flag_oct + results$ox_3_HS_flag_oct
 results$ox_2_split <- results$ox_2_HS_energy - results$ox_2_LS_energy
 results$ox_3_split <- results$ox_3_HS_energy - results$ox_3_LS_energy
 
+
 # set up another df for ox_2 complexes that have all the needed energies non-nan 
-ox_2_split_results <- results[!(is.na(results$ox_2_split)) & results$ox_2_HS_flag_oct == 1 & results$ox_2_LS_flag_oct == 1 ,colstokeep]
+ox_2_split_results <- results[!(is.na(results$ox_2_split)) & results$ox_2_HS_flag_oct == 1 &
+                                results$ox_2_LS_flag_oct == 1 ,colstokeep]
 ox_2_split_results$split  <- ox_2_split_results$ox_2_split
 ox_2_split_results$ox_2_split <- NULL
 ox_2_split_results$ox_3_split <- NULL
@@ -82,7 +103,7 @@ split_results <- rbind(ox_2_split_results,ox_3_split_results)
 require(plyr)
 split_results$metal <- revalue(as.factor(split_results$metal),c("0"="Cr","1"="Mn","2"="Fe","3"="Co"))
 split_results$ox <- as.factor(split_results$ox)
-split_results$run <-
+
 
 # require(ggplot2)
 # gg<-ggplot(data=split_results,aes(x=V104,y=split,color=ox,group=ox)) +geom_point() + facet_grid("metal ~.") + theme_light()
@@ -111,4 +132,14 @@ split_results$run <-
 # # df$ss3 <- results$ox_3_HS_energy - results$ox_3_LS_energy
 # # df$ipls <- results$ox_3_LS_energy - results$ox_2_LS_energy
 # # df$iphs <- results$ox_3_HS_energy - results$xo_2_HS_energy
-
+results$ox_3_LS_ax1_MLB<-as.numeric(as.character(results$ox_3_LS_ax1_MLB))
+results$ox_3_LS_eq_MLB<-as.numeric(as.character(results$ox_3_LS_eq_MLB))
+results$metal<-factor(results$metal)
+p<-ggplot(data=results[!(is.na(results$ox_3_LS_eq_MLB)) &!(is.na(results$ox_3_LS_ax1_MLB))& results$alpha==20 &
+                        results$ox_3_LS_flag_oct ==1,],
+          aes(x=ox_3_LS_eq_MLB,y=ox_3_LS_ax1_MLB,color=metal)) +geom_abline(color='gray')+ 
+        geom_label_repel(aes(label = eqlig),
+                      data =results[!(is.na(results$ox_3_LS_eq_MLB)) &!(is.na(results$ox_3_LS_ax1_MLB))& results$alpha==20 &
+                                     results$ox_3_LS_flag_oct ==1 & abs(results$ox_3_LS_eq_MLB - results$ox_3_LS_ax1_MLB)> 0.1,] )+
+        geom_point(size=4)
+print(p)

@@ -1,0 +1,14 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
+The style file: achemso.bst
+Database file #1: IECR_Paper.bib
+Warning--entry type for "kirkpatrick2004" isn't style-file defined
+--line 154 of file IECR_Paper.bib
+Warning--I didn't find a database entry for "virshup2013"
+Warning--I didn't find a database entry for "luethi2010"
+Warning--I didn't find a database entry for "nguyen2008"
+Warning--I didn't find a database entry for "agrafiotis1997"
+`address' is a missing field, not a string, for entry letard2004
+while executing---line 938 of file achemso.bst
+Warning--empty address in letard2004
+Warning--empty year in letard2004
+(There was 1 error message)

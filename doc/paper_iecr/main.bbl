@@ -1,0 +1,140 @@
+\providecommand{\refin}[1]{\\ \textbf{Referenced in:} #1}
+\begin{thebibliography}{10}
+
+\bibitem{blair1932}
+Blair,~C.~M.;\ \ Henze,~H.~R.  {{THE NUMBER OF STEREOISOMERIC AND
+  NON}}-{{STEREOISOMERIC PARAFFIN HYDROCARBONS}},    \textsl{54,} 1538-1545.
+
+\bibitem{polishchuk2013}
+Polishchuk,~P.~G.;\ \ Madzhidov,~T.~I.;\ \ Varnek,~A.  Estimation of the Size
+  of Drug-like Chemical Space Based on {{GDB}}-17 Data,    \textsl{27,}
+  675-679.
+
+\bibitem{bohacek1998}
+Bohacek,~R.~S.;\ \ McMartin,~C.;\ \ Guida,~W.~C.  The Art and Practice of
+  Structure‐based Drug Design: {{A}} Molecular Modeling Perspective,
+  \textsl{16,} 3-50.
+
+\bibitem{wester2008}
+Wester,~M.~J.;\ \ Pollock,~S.~N.;\ \ Coutsias,~E.~A.;\ \ Allu,~T.~K.;\ \
+  Muresan,~S.;\ \ Oprea,~T.~I.  Scaffold {{Topologies}}. 2. {{Analysis}} of
+  {{Chemical Databases}},    \textsl{48,} 1311-1324.
+
+\bibitem{triggle2009}
+Triggle,~D.~J.  The Chemist as Astronaut: {{Searching}} for Biologically Useful
+  Space in the Chemical Universe,    \textsl{78,} 217-223.
+
+\bibitem{bartok2013}
+Bartók,~A.~P.;\ \ Kondor,~R.;\ \ Csányi,~G.  On Representing Chemical
+  Environments,    \textsl{87,}.
+
+\bibitem{ghiringhelli2015}
+Ghiringhelli,~L.~M.;\ \ Vybiral,~J.;\ \ Levchenko,~S.~V.;\ \ Draxl,~C.;\ \
+  Scheffler,~M.  Big {{Data}} of {{Materials Science}}: {{Critical Role}} of
+  the {{Descriptor}},    \textsl{114,} 105503.
+
+\bibitem{tan2005}
+Tan,~D.~S.  Diversity-Oriented Synthesis: Exploring the Intersections between
+  Chemistry and Biology,    \textsl{1,} 74-84.
+
+\bibitem{hajduk2011}
+Hajduk,~P.~J.;\ \ Galloway,~W. R. J.~D.;\ \ Spring,~D.~R.  Drug Discovery:
+  {{A}} Question of Library Design,    \textsl{470,} 42-43.
+
+\bibitem{galloway2010}
+Galloway,~W. R. J.~D.;\ \ Isidro-Llobet,~A.;\ \ Spring,~D.~R.
+  Diversity-Oriented Synthesis as a Tool for the Discovery of Novel
+  Biologically Active Small Molecules,    \textsl{1,} 80.
+
+\bibitem{hachmann2011}
+Hachmann,~J.;\ \ Olivares-Amaya,~R.;\ \ Atahan-Evrenk,~S.;\ \
+  Amador-Bedolla,~C.;\ \ Sánchez-Carrera,~R.~S.;\ \ Gold-Parker,~A.;\ \
+  Vogt,~L.;\ \ Brockway,~A.~M.;\ \ Aspuru-Guzik,~A.  The {{Harvard Clean Energy
+  Project}}: {{Large}}-{{Scale Computational Screening}} and {{Design}} of
+  {{Organic Photovoltaics}} on the {{World Community Grid}},    \textsl{2,}
+  2241-2251.
+
+\bibitem{jain2011}
+Jain,~A.;\ \ Hautier,~G.;\ \ Moore,~C.~J.;\ \ Ping~Ong,~S.;\ \ Fischer,~C.~C.;\
+  \ Mueller,~T.;\ \ Persson,~K.~A.;\ \ Ceder,~G.  A High-Throughput
+  Infrastructure for Density Functional Theory Calculations,    \textsl{50,}
+  2295-2310.
+
+\bibitem{hautier2010}
+Hautier,~G.;\ \ Fischer,~C.~C.;\ \ Jain,~A.;\ \ Mueller,~T.;\ \ Ceder,~G.
+  Finding {{Nature}}’s {{Missing Ternary Oxide Compounds Using Machine
+  Learning}} and {{Density Functional Theory}},    \textsl{22,} 3762-3767.
+
+\bibitem{jensen2015}
+Jensen,~P.~B.;\ \ Bialy,~A.;\ \ Blanchard,~D.;\ \ Lysgaard,~S.;\ \
+  Reumert,~A.~K.;\ \ Quaade,~U.~J.;\ \ Vegge,~T.  Accelerated {{DFT}}-{{Based
+  Design}} of {{Materials}} for {{Ammonia Storage}},    \textsl{27,} 4552-4561.
+
+\bibitem{norskov2009}
+Nørskov,~J.~K.;\ \ Bligaard,~T.;\ \ Rossmeisl,~J.;\ \ Christensen,~C.~H.
+  Towards the Computational Design of Solid Catalysts,    \textsl{1,} 37-46.
+
+\bibitem{greeley2006}
+Greeley,~J.;\ \ Jaramillo,~T.~F.;\ \ Bonde,~J.;\ \ Chorkendorff,~I.;\ \
+  Nørskov,~J.~K.  Computational High-Throughput Screening of Electrocatalytic
+  Materials for Hydrogen Evolution,    \textsl{5,} 909-913.
+
+\bibitem{curtarolo2013}
+Curtarolo,~S.;\ \ Hart,~G. L.~W.;\ \ Nardelli,~M.~B.;\ \ Mingo,~N.;\ \
+  Sanvito,~S.;\ \ Levy,~O.  The High-Throughput Highway to Computational
+  Materials Design,    \textsl{12,} 191-201.
+
+\bibitem{rajan2008}
+Rajan,~K.  Combinatorial {{Materials Sciences}}: {{Experimental Strategies}}
+  for {{Accelerated Knowledge Discovery}},    \textsl{38,} 299-322.
+
+\bibitem{kirkpatrick2004}
+Kirkpatrick,~P.;\ \ Ellis,~C. ``Chemical Space'', .
+
+\bibitem{ruddigkeit2012}
+Ruddigkeit,~L.;\ \ van Deursen,~R.;\ \ Blum,~L.~C.;\ \ Reymond,~J.-L.
+  Enumeration of 166 {{Billion Organic Small Molecules}} in the {{Chemical
+  Universe Database GDB}}-17,    \textsl{52,} 2864-2875.
+
+\bibitem{letard2004}
+Létard,~J.-F.;\ \ Guionneau,~P.;\ \ Goux-Capes,~L.  Towards {{Spin Crossover
+  Applications}}.   In  \textit{Spin {{Crossover}} in {{Transition Metal
+  Compounds III}}}; Topics in Current Chemistry {Springer, Berlin,
+  Heidelberg}:.
+
+\bibitem{halcrow2011}
+Halcrow,~M.~A.  Structure:Function Relationships in Molecular Spin-Crossover
+  Complexes,    \textsl{40,} 4119-4142.
+
+\bibitem{ashley2017}
+Ashley,~D.~C.;\ \ Jakubikova,~E.  Ironing out the Photochemical and
+  Spin-Crossover Behavior of {{Fe}}({{II}}) Coordination Compounds with
+  Computational Chemistry,    \textsl{337,} 97-111.
+
+\bibitem{bignozzi2013}
+Bignozzi,~C.~A.;\ \ Argazzi,~R.;\ \ Boaretto,~R.;\ \ Busatto,~E.;\ \
+  Carli,~S.;\ \ Ronconi,~F.;\ \ Caramori,~S.  The Role of Transition Metal
+  Complexes in Dye Sensitized Solar Devices,    \textsl{257,} 1472-1492.
+
+\bibitem{harvey2003}
+Harvey,~J.~N.;\ \ Poli,~R.;\ \ Smith,~K.~M.  Understanding the Reactivity of
+  Transition Metal Complexes Involving Multiple Spin States,
+  \textsl{238-239,} 347-361.
+
+\bibitem{ioannidis2016}
+Ioannidis,~E.~I.;\ \ Gani,~T. Z.~H.;\ \ Kulik,~H.~J.  {{molSimplify}}: {{A}}
+  Toolkit for Automating Discovery in Inorganic Chemistry,    \textsl{37,}
+  2106-2117.
+
+\bibitem{tsuchida1938}
+Tsuchida,~R.  Absorption {{Spectra}} of {{Co}}-Ordination {{Compounds}}. {{I}},
+     \textsl{13,} 388-400.
+
+\bibitem{ballhausen1963}
+Ballhausen,~C.~J.;\ \ Weiner,~M.~A.  Introduction to {{Ligand Field Theory}},
+   \textsl{110,} 97C-97C.
+
+\bibitem{griffith1957}
+Griffith,~J.~S.;\ \ Orgel,~L.~E.  Ligand-Field Theory,    \textsl{11,} 381-393.
+
+\end{thebibliography}

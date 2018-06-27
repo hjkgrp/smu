@@ -8,7 +8,7 @@ HF_to_kcalmol = 627.5095
 loadSet <-function(name){
   nameStr = deparse(substitute(name))
   if (nameStr != 'ho'){
-    pipeStr <- paste("awk 'BEGIN{i=0}{i++;if (i%100==1) print $1}' < RAC_", nameStr, '.csv',sep='')
+    pipeStr <- paste("awk 'BEGIN{i=0}{i++;if (i%1==0) print $1}' < RAC_", nameStr, '.csv',sep='') # i%100==1
     name <- read.csv(pipe(pipeStr), header = TRUE)
   } else {
     name <- read.csv(file = paste("RAC_",nameStr,".csv", sep=''), header = TRUE)
@@ -142,7 +142,7 @@ ft_rf133racs_data <- standardizeSet(ft_rf133racs, superset_rf133racs_center, sup
 ws_rf133racs_data <- standardizeSet(ws_rf133racs, superset_rf133racs_center, superset_rf133racs_scale)
 split_results_rf133racs_data <- standardizeSet(split_results_rf133racs, superset_rf133racs_center, superset_rf133racs_scale)
 # 39
-homo_rf39racs_data <- standardizeSet(homo_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)
+homo_rf39racs_data<-standardizeSet(homo_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)
 ss_rf39racs_data <- standardizeSet(ss_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)
 fo_rf39racs_data <- standardizeSet(fo_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)
 ft_rf39racs_data <- standardizeSet(ft_rf39racs, superset_rf39racs_center, superset_rf39racs_scale)

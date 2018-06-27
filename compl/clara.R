@@ -1,7 +1,7 @@
 require(cluster)
 new_descriptors <- validChildren
 clara_predictors <- new_descriptors
-rownames(clara_predictors)<-clara_predictors$runs
+rownames(clara_predictors) <- clara_predictors$runs
 # load(file="selected_all.R")
 load(file="selected_rf_41.Rda")
 rf39vars <- selected_rf_41[!(selected_rf_41 %in% c('alpha','ox'))] # bc we dont have alpha and ox in the racs here

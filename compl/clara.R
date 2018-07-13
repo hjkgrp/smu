@@ -1,4 +1,5 @@
 require(cluster)
+library(cluster)
 new_descriptors <- validChildren
 clara_predictors <- new_descriptors
 rownames(clara_predictors) <- clara_predictors$runs
@@ -15,12 +16,12 @@ clara_predictors_scale <- attr(clara_predictors, 'scaled:scale')
 clara_predictors <- as.data.frame(clara_predictors)
 
 
-nc = 1000
+nc = 200
 start_time <- Sys.time()
 pa <-clara(clara_predictors,nc,rngR = TRUE) # rngR uses the R random number generator
 end_time <- Sys.time()
-# pa1000 <- pa
-# save(pa1000,file="pa1000.Rdata")
+# pa200 <- pa
+# save(pa200,file="pa200.Rdata")
 
 cluster_info <- data.frame(pa$clusinfo)
 meds  <- as.data.frame(t(apply(pa$medoids, 1, function(r)r*clara_predictors_scale+ clara_predictors_center)))

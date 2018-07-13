@@ -1,55 +1,129 @@
 rm(list=ls())
 
-readResults <- function(path, charge){
-  results <- read.csv(file = path)
-  
-  # denote the charged ligands with 1 the neutral ones with 0 and combine them
-  # results$charge <- charge #rep(0,nrow(results1)) 
+source("fix_bidentate_names.R")
+
+readResults <- function(path){
+  results <- read.csv(file = path, stringsAsFactors = F, sep = ",")
 }
 
 # name rows and cols (ie but them into rownames) and rm the actual col
 readRacs <- function(path){
-  racs <- read.csv(file = path, header = TRUE)
+  racs <- read.csv(file = path, header = TRUE, stringsAsFactors = F)
   rownames(racs)<-racs$runs
   racs$runs<-NULL
   return(racs)
 }
 
+# NEUTRAL MONODENTATES
+results1 <- readResults('unified_results_post.csv')
 racs1 <- readRacs("consistent_descriptor_file.csv")
-racs2 <- readRacs("consistent_descriptor_file_charged.csv")
-racs3 <- readRacs("consistent_descriptor_file_bi.csv")
-racs4 <- readRacs('consistent_descriptor_file_charged_bi.csv')
+r1 <- cbind(results1, racs1)
+
+resultsNan1 <- readResults('unified_results_post_nans.csv') # they happen to be only monodentates
 racsNan1 <- readRacs('consistent_descriptor_file_nans.csv')
-racsNan2 <- readRacs('consistent_descriptor_file_charged_nans.csv')
+rN1 <- cbind(resultsNan1, racsNan1)
+rN1 <- rN1[,colnames(r1)] # just use the colnames that are present in r1, s.t. the rbind doesnt fail
 
-results1 <- readResults('unified_results_post.csv', 0)
-results2 <- readResults('unified_results_post_charged.csv', 1)
-results3 <- readResults('unified_results_post_bi.csv', 0)
-results4 <- readResults('unified_results_post_charged_bi.csv', 1)
-resultsNan1 <- readResults('unified_results_post_nans.csv', 0)
-resultsNan2 <- readResults('unified_results_post_charged_nans.csv', 1)
+for (i in seq(1,nrow(rN1))){
+  nan_row <- rN1[i,]
+  r1 <- r1[!(as.character(r1$name) == as.character(nan_row$name)), ]
+}
+r1 <- rbind(r1,rN1)
 
-# because the charged ones have 5 more cols because they were produced with a slightly earlier version of mAD
-results1 <- results1[,(colnames(results1) %in% colnames(results2))]
-results3 <- results3[,(colnames(results3) %in% colnames(results4))]
-resultsNan1 <- resultsNan1[,(colnames(resultsNan1) %in% colnames(resultsNan2))]
+results1 <- r1[,colnames(results1)]
+racs1 <- r1[,colnames(racs1)]
+
+print(dim(results1[results1$alpha == 20,])[1]/4)
+
+# CHARGED MONODENTATES (from JP)
+results2 <- readResults('unified_results_post_charged.csv')
+racs2 <- readRacs("consistent_descriptor_file_charged.csv") 
+r2 <- cbind(results2, racs2)
+
+resultsNan2 <- readResults('unified_results_post_charged_nans.csv') # they happen to be only monodentates
+racsNan2 <- readRacs('consistent_descriptor_file_charged_nans.csv') 
+rN2 <- cbind(resultsNan2, racsNan2)
+rN2 <- rN2[,colnames(r2)] # just use the colnames that are present in r1, s.t. the rbind doesnt fail
+
+for (i in seq(1,nrow(rN2))){
+  nan_row = rN2[i,]
+  r2 <- r2[!(as.character(r2$name) == as.character(nan_row$name)), ]
+}
+r2 <- rbind(r2, rN2)
+
+results2 <- r2[,colnames(results2)]
+racs2 <- r2[,colnames(racs2)]
+
+print(dim(results2[results2$alpha == 20,])[1]/4)
+
+# NEUTRAL BIDENTATES
+results3 <- readResults('unified_results_post_bi.csv')
+racs3 <- readRacs("consistent_descriptor_file_bi.csv")
+r3 <- cbind(results3, racs3)
+
+r3 <- fix_bidentate_names(r3)
+
+rm <- NULL
+for (i in seq(1, dim(r3)[1])){
+  rm <- c(rm, !(r3[i,]$eqlig == 'zzz'))
+}
+r3 <- r3[rm,]
+
+results3 <- r3[,colnames(results3)]
+racs3 <- r3[,colnames(racs3)]
+
+print(dim(results3[results3$alpha == 20,])[1]/4)
+
+# CHARGED BIDENTATES (from JP)
+results4 <- readResults('unified_results_post_charged_bi.csv')
+racs4 <- readRacs('consistent_descriptor_file_charged_bi.csv') 
+r4 <- cbind(results4, racs4)
+
+r4 <- fix_bidentate_names(r4)
+
+rm <- NULL
+for (i in seq(1, dim(r4)[1])){
+  rm <- c(rm, !(r4[i,]$eqlig == 'zzz'))
+}
+r4 <- r4[rm,]
+
+results4 <- r4[,colnames(results4)]
+racs4 <- r4[,colnames(racs4)]
+
+print(dim(results4[results4$alpha == 20,])[1]/4)
+
+# because some have  more cols because they were produced with a slightly earlier version of mAD
+results1 <- results1[,colnames(results4)]
+results2 <- results2[,colnames(results4)]
+results3 <- results3[,colnames(results4)]
+racs2 <- racs2[,colnames(racs1)]
 
 # concat lists according to denticity
-racs_m <- rbind(rbind(rbind(racs1, racsNan1), racs2), racsNan2)
+racs_m <- rbind(racs1, racs2)
 racs_b <- rbind(racs3, racs4) 
-results_m <- rbind(rbind(rbind(results1, resultsNan1), results2), resultsNan2)
+results_m <- rbind(results1, results2)
 results_b <- rbind(results3, results4)
 
-# transform eqlig from format 'smiXXX' to a numeric and add 405 to the bidentates.
+#for iecr generate a list with only neutral monos
+racs_neut_m <- racs1
+results_neut_m <- results1
+results_neut_m$eqn <- as.numeric(as.character(gsub('smi', '', results_neut_m$eqlig)))
+
+# transform eqlig from format 'smiXXX' to a numeric (and add 405 to the bidentates. not anymore bc we apply the fix function upon import)
 results_m$eqn <- as.numeric(as.character(gsub('smi', '', results_m$eqlig)))
-results_b$eqn <- as.numeric(as.character(gsub('smi', '', results_b$eqlig))) + 405
+results_b$eqn <- as.numeric(as.character(gsub('smi', '', results_b$eqlig))) + 0
 
 # combine all results
 racs <- rbind(racs_m, racs_b)
 results <- rbind(results_m, results_b)
 
+
+#CLARA only monodentates:
+racs_clara <- racs_m
+results_clara <- results_m
+
 # generate all columns that are interesting to us
-colstokeep <- c("name","gene","alpha","metal","ox2RN","ox3RN","ox_2_split","ox_3_split", 'eqn')
+colstokeep <- c("name","gene","alpha","metal","ox2RN","ox3RN","ox_2_split","ox_3_split", 'eqn',"ox_2_HS_charge","ox_3_HS_charge")
 
 # we iterate over ox_{2,3} and {LS,HS} because the string of the descriptor name is always constructed this way
 for (props in c("energy","time","flag_oct","num_coord_metal", 'status')){
@@ -60,7 +134,6 @@ for (props in c("energy","time","flag_oct","num_coord_metal", 'status')){
     }
   }
 }
-
 
 
 results[is.na(results$ox_2_HS_flag_oct), ]$ox_2_HS_flag_oct <- 0
@@ -81,6 +154,7 @@ ox_2_split_results <- results[!(is.na(results$ox_2_split)) & results$ox_2_HS_fla
 ox_2_split_results$split  <- ox_2_split_results$ox_2_split
 ox_2_split_results$ox_2_split <- NULL
 ox_2_split_results$ox_3_split <- NULL
+# ox_2_split_results$lfc<-ox_2_split_results$ox_2_HS_charge - 2 if you want to add charge to this spin split thing.
 
 # select only racs for ox_2_split_result
 matching_racs <- racs[as.character(ox_2_split_results$name),]

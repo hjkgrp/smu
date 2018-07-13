@@ -8,7 +8,7 @@ HF_to_kcalmol = 627.5095
 loadSet <-function(name){
   nameStr = deparse(substitute(name))
   if (nameStr != 'ho'){
-    pipeStr <- paste("awk 'BEGIN{i=0}{i++;if (i%1==0) print $1}' < RAC_", nameStr, '.csv',sep='') # i%100==1
+    pipeStr <- paste("awk 'BEGIN{i=0}{i++;if (i%100==0) print $1}' < RAC_", nameStr, '.csv',sep='') # i%100==1
     name <- read.csv(pipe(pipeStr), header = TRUE)
   } else {
     name <- read.csv(file = paste("RAC_",nameStr,".csv", sep=''), header = TRUE)
